@@ -1,11 +1,495 @@
-/*-----------------------------------*/
-/*--- IMPORT STYLES FOR FASTPAGES ---*/
-@import "minima/fastpages-styles";   
+/* ============================================================================
+ ** File: custom-styles.css
+ ** ============================================================================
+ */
 
-
-
-/*-----------------------------------*/
-/*----- ADD YOUR STYLES BELOW -------*/
-
-// If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&amp;subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:600");
+
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+html, 
+body { 
+    height: 100%; 
+}
+
+body > .container { 
+    height: auto; 
+    min-height: 100%; 
+}
+
+body {
+    margin-top: 0;
+    padding-bottom: 0;
+    color: #5a5a5a;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    word-break: break-word;
+    hyphens: auto;
+    background: url('http://www.cds.caltech.edu/~mhucka/media/images/textures/noisy_grid_green.png');
+}
+
+header.site-header {
+    background-color: #555855;
+    color: white;
+    padding: 0;
+    background: linear-gradient(#555855, #505050);
+}
+
+.wrapper {
+    max-width: 90%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.25em;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    padding-top: 1em;
+    -webkit-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
+}
+
+header.site-header .wrapper {
+    font-family: 'Cabin', sans-serif;
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding: 1px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+header.site-header a.site-title,
+header.site-header a.page-link {
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.25pt;
+    text-shadow: 1px 1px 3px #444;
+}
+
+main, article {
+    font-family: 'Rubik', sans-serif;
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #5a5a5a;
+}
+
+/* Section numbering */
+
+body {
+    counter-reset: h2counter;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #777;
+    text-decoration: underline;
+}
+
+main a {
+    color: black;
+    text-decoration: underline;
+}
+
+main a:visited {
+    color: #666;
+    text-decoration: underline;
+}
+
+main strong,
+main b {
+    font-weight: 500;
+    color: black;
+}
+
+article h1 {
+    counter-reset: h2counter;
+}
+
+article h2:before {
+    content: counter(h2counter) "\0000a0\0000a0\0000a0";
+    counter-increment: h2counter;
+    counter-reset: h3counter;
+}
+
+article h3:before {
+    content: counter(h2counter) "." counter(h3counter) "\0000a0\0000a0\0000a0";
+    counter-increment: h3counter;
+}
+
+/* Styling */
+
+.post-list h1,
+.post-list h2,
+.post-list h3 {
+    padding-top: 0;
+}
+
+.post-list li {
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 1.75em;
+    color: black;
+}
+
+.post-list h3 .post-link {
+    font-size: 1em;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    padding-top: 0;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+}
+
+.page-content {
+    padding-top: 2em;
+}
+
+article .post-header h1,
+main.page-content h1 {
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+article .post-content h2,
+main.page-content h2 {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+    font-size: 1.75em;
+    color: black;
+}
+
+article .post-content h3,
+main.page-content h3 {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: black;
+}
+
+article .post-content h4,
+main.page-content h4 {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    font-style: oblique;
+    color: black;
+}
+
+header.post-header .page-description {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    text-align: center;
+}
+
+.post-meta {
+    color: white;
+    text-align: center;
+    margin-top: 0.25em;
+}
+
+.post-meta time.dt-published {
+    color: #5a5a5a;
+}
+
+.post-list li p {
+    display: inline-block;
+}
+
+.post-list p.post-meta {
+    float: right;
+    display: inline;
+    color: #5a5a5a;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+.category-tags {
+    font-size: 0.8em;
+    text-align: center;    
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+i.category-tags-icon {
+    display: none;
+}
+
+.category-tags-link:before {
+    content: "#";
+}
+
+.dt-published {
+    text-align: center;
+    font-style: oblique;
+    color: #5a5a5a;
+}
+
+.read-time {
+    display: none;
+}
+
+.section-nav {
+    display: inline-block;
+    float: right;
+    font-size: 10pt;
+    border: 1px solid #ccc;
+    padding: 0.5em 1em 0.5em 2em;
+    border-radius: 6px;
+    margin-top: 1em;
+    margin-left: 2em;
+    margin-bottom: 2em;
+}
+
+ul.section-nav:before {
+    content: "Content";
+    color: #888;
+    font-style: italic;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+h2.subtitle {
+    text-align: center;
+    margin-left: 4em;
+    margin-right: 4em;
+    color: #5a5a5a;
+    font-style: italic;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    -o-hyphens: none;
+    hyphens: none;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+/* The default code font size looks oversized to my eyes. */
+article .post-content pre, 
+article .post-content code {
+    font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+    color: black;
+    background-color: #edf0ed;
+    font-size: 11pt;
+    border: none;
+}
+
+h2, h3, h4 {
+    padding-top: 60px;
+    margin-top: -60px;
+}
+
+ol li {
+    margin-top: 0.5em;
+}
+
+.dropdown-menu li a {
+    line-height: 1.2;
+    color: black;
+    text-decoration: underline;
+}
+
+span.section-number {
+    margin-right: 1ex;
+}
+
+span.header-section-number {
+    margin-right: 1ex;
+}
+
+li.headline {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.main-toc li:not(.headline),
+.navbar-nav li:not(.headline) {
+    margin-left: 25px;
+}
+
+.toc li {
+    margin-top: 0.5em;
+}
+
+.article-list.toc li {
+    margin-top: 1em;
+}
+
+h1#references {
+    border-top: 1px solid #aaa;
+    margin-top: 2em;
+    padding-top: 0.5em;
+}
+
+.references span {
+    color: black;
+}
+
+/* Bootstrap's styling of <p> adds a 10px margin below, but it doesn't
+   define it for <center>.  This seems useful to make things more consistent.
+*/
+center {
+    margin-bottom: 10px;
+}
+
+/* Extra styles for the notebook.
+ */
+h3.date {
+    font-size: 1em;
+    font-style: italic;
+    text-align: center;
+}
+
+.date:before {
+    content: "Last modified: ";
+}
+
+.date-tag {
+    clear: both;
+    font-size: 0.75em;
+    font-style: italic;
+    line-height: 1.75;
+    color: #666666;
+}
+
+.authors {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.authors .author {
+    line-height: 0.5em;
+}
+
+.article-list {
+    margin-left: 2em;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: smaller;
+    font-color: #666666;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding-top: 1.5em;
+    text-align: justify;
+    /* The following doesn't work in Safari. */
+    text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+figure {
+    padding: 1em 0 1em 0;
+    text-align: center;
+}
+
+figure img {
+    margin: auto;
+}
+
+.copyright-repo-info {
+    float: left;
+    display: inline-block;
+    padding-left: 1em;
+}
+
+a[href*="categories/#sysbio"]           { color: #996611; }
+
+a[href*="categories/#sbml"]             { color: #009999; }
+
+a[href*="categories/#hardware"]         { color: #268bd2; }
+a[href*="categories/#mac"]              { color: orange; }
+
+a[href*="categories/#humor"]            { color: #009900; }
+
+a[href*="categories/#life-hacks"]       { color: #cc00dd; }
+a[href*="categories/#effectiveness"]    { color: #cc00dd; }
+a[href*="categories/#efficiency-hacks"] { color: #cc00dd; }
+
+a[href*="categories/#software"]         { color: #d00000; }
+a[href*="categories/#emacs"]            { color: #d00000; }
+a[href*="categories/#git"]              { color: #d00000; }
+a[href*="categories/#python"]           { color: #d00000; }
+a[href*="categories/#latex"]            { color: #d00000; }
+a[href*="categories/#mediawiki"]        { color: #d00000; }
+a[href*="categories/#macos"]            { color: #d00000; }
+
+footer {
+    padding-bottom: 0;
+}
+
+.site-footer {
+    padding-bottom: 10px;
+}
+
+footer .wrapper {
+    font-family: 'Cabin', sans-serif;
+    font-size: 9pt;
+    background-color: inherit;
+    border: none;
+    box-shadow: none;
+}
+
+footer .wrapper a {
+    color: black;
+    text-decoration: underline;
+}
+
+footer .wrapper a:visited {
+    color: #777;
+    text-decoration: underline;
+}
+
+footer .footer-col {
+    margin-bottom: 0;
+}
+
+footer .footer-col-wrapper {
+    max-width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer .feed-subscribe {
+    text-align: right;
+    margin-right: 2em;
+}
+
+footer .footer-col:nth-child(2) {
+    text-align: left;
+    margin-left: 2em;
+}
+
+footer .feed-subscribe .svg-icon.orange {
+    color: #5a5a5a;
+    height: 1.5em;
+    width: 1.5em;
+    margin-bottom: -0.1em;
+    margin-right: -0.1em;
+    border-radius: 4px;
+}
+
