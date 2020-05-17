@@ -13,11 +13,11 @@ I found myself running out of space on a MacBook Pro Retina, and an upgrade to a
 
 Well, the problem with regular SD memory cards is that they stick out of the slot.  You simply can't leave a card plugged in all the time, because you're sure to damage it while moving your laptop around, especially in and out of bags.  On the other hand, if you had to keep mounting and dismounting the card and pulling it out and back in, it would just be too much of a hassle and too prone to accidents.  If only those SD cards were shorter ...  Hmm ...
 
-So I looked around for shorter SD cards.   Turns out short SD cards do not seem to exist, but something else *does*: an adapter for _micro_ SD cards that fits flush with the exterior of the laptop!  I found one product in particular, the [MiniDrive](https://www.theminidrive.com), works well enough and suits my needs.  I bought it, along with the highest-capacity micro SDXC card available (which is currently 64 GB, though 128 GB are supposed to come in the near future), mounted it, formatted it, and moved various not-so-essential files to it. And it works!
-
-<figure>
+<figure class="float-right width-33">
   <img src="/images/macbook-pro-side.jpg"/>
 </figure>
+
+So I looked around for shorter SD cards.   Turns out short SD cards do not seem to exist, but something else *does*: an adapter for _micro_ SD cards that fits flush with the exterior of the laptop!  I found one product in particular, the [MiniDrive](https://www.theminidrive.com), works well enough and suits my needs.  I bought it, along with the highest-capacity micro SDXC card available (which is currently 64 GB, though 128 GB are supposed to come in the near future), mounted it, formatted it, and moved various not-so-essential files to it. And it works!
 
 In case any readers are interested in doing the same, here are some noteworthy points:
 

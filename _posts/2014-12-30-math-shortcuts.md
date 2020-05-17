@@ -13,8 +13,11 @@ I want to share an approach to easily typing many mathematical symbols using the
 
 In more detail, here is how to set it up:
 
+<figure class="float-right width-33">
+  <img src="/images/keyboard-maestro-latex-symbols.jpg"/>
+</figure>
+
 1. In text expansion program, define a group for the abbreviations.  In KeyboardMaestro (and I am sure in Textpander too), groups of abbreviations can be toggled active/inactive via a keyboard shortcut.  I use the sequence `command-option-control-'` (that's a normal single quote at the end), which is a key sequence that's easy to type and that I don't use for anything else.  The first press of that key combination activates the abbreviations group, and a second press deactivates it. 
-<figure><img src="/images/keyboard-maestro-latex-symbols.jpg"/></figure>
 2. Within that group of abbreviations, define shortcuts for all of the LaTeX symbols and other things that you want to use.  In KeyboardMaestro, this requires defining an abbreviation that inserts text, and the text to be inserted is the symbol that the LaTeX command represents.  So in other words, define `\alpha` to insert the character "α", define `\beta` to insert the character "β", and so on, all the way through to special symbols such as `\cup` for "∪" (set intersection), `\cap` for "∩" (set union), `\sum` for "∑", and so on. For Greek letters, I use capitalized names for the capitalized variants of the letters: `\omega` for ω and `\Omega` for Ω, etc.
 3. When you want to access the symbols while writing, activate the abbreviations group using the keyboard shortcut you use (`command-option-control-'` in my case), then proceed to write things like `"P(A \cap B) = P(A)P(B)"` (which is what you would type when using LaTeX) and have it instantly turn into more readable text such as *"P(A ∩ B) = P(A)P(B)"* without actually running LaTeX (or having to click around in the Mac OS X "Special Character..." palette, or do other things).
 
