@@ -54,6 +54,7 @@ $on-large:         $on-laptop !default;
   font-size: #{$ratio}rem;
 }
 
+
 /*
  * The rest is my customization.
  * ............................................................................
@@ -454,12 +455,41 @@ figcaption {
 }
 
 figure {
-    padding: 1em 0 1em 0;
     text-align: center;
 }
 
 figure img {
     margin: auto;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
+}
+
+figure.float-right {
+    display: inline-block;
+    float: right;
+}
+
+figure.float-left {
+    display: inline-block;
+    float: left;
+}
+
+figure.width-25 {
+    max-width: 25%;
+}
+
+figure.width-33 {
+    max-width: 33%;
+}
+
+figure.width-50 {
+    max-width: 50%;
+}
+
+figure.width-66 {
+    max-width: 66%;
 }
 
 .copyright-repo-info {
@@ -467,27 +497,6 @@ figure img {
     display: inline-block;
     padding-left: 1em;
 }
-
-a[href*="categories/#sysbio"]           { color: #996611; }
-
-a[href*="categories/#sbml"]             { color: #009999; }
-
-a[href*="categories/#hardware"]         { color: #268bd2; }
-a[href*="categories/#mac"]              { color: orange; }
-
-a[href*="categories/#humor"]            { color: #009900; }
-
-a[href*="categories/#life-hacks"]       { color: #cc00dd; }
-a[href*="categories/#effectiveness"]    { color: #cc00dd; }
-a[href*="categories/#efficiency-hacks"] { color: #cc00dd; }
-
-a[href*="categories/#software"]         { color: #d00000; }
-a[href*="categories/#emacs"]            { color: #d00000; }
-a[href*="categories/#git"]              { color: #d00000; }
-a[href*="categories/#python"]           { color: #d00000; }
-a[href*="categories/#latex"]            { color: #d00000; }
-a[href*="categories/#mediawiki"]        { color: #d00000; }
-a[href*="categories/#macos"]            { color: #d00000; }
 
 footer {
     padding-bottom: 0;
@@ -547,4 +556,47 @@ footer .feed-subscribe .svg-icon.orange {
 
 .social-links {
     display: none;
+}
+
+a[href*="categories/#sysbio"]           { color: #996611; }
+
+a[href*="categories/#sbml"]             { color: #009999; }
+
+a[href*="categories/#hardware"]         { color: #268bd2; }
+a[href*="categories/#mac"]              { color: orange; }
+
+a[href*="categories/#photography"]      { color: #80a000; }
+
+a[href*="categories/#humor"]            { color: #009900; }
+
+a[href*="categories/#life-hacks"]       { color: #cc00dd; }
+a[href*="categories/#effectiveness"]    { color: #cc00dd; }
+a[href*="categories/#efficiency-hacks"] { color: #cc00dd; }
+
+a[href*="categories/#software"]         { color: #d00000; }
+a[href*="categories/#emacs"]            { color: #d00000; }
+a[href*="categories/#git"]              { color: #d00000; }
+a[href*="categories/#python"]           { color: #d00000; }
+a[href*="categories/#latex"]            { color: #d00000; }
+a[href*="categories/#mediawiki"]        { color: #d00000; }
+a[href*="categories/#macos"]            { color: #d00000; }
+
+
+/*
+ * Override the code highlighting theme settings.
+ * ............................................................................
+ */
+
+@import "minima/syntax-github"; 
+
+.highlight {
+  background-color: #f0f3f0 !important;
+}
+
+article .post-content pre {
+    background-color: inherit;
+}
+
+pre.highlight code {
+    background-color: inherit;
 }
