@@ -10,7 +10,7 @@ keywords: [research, PDF]
 In my continuing quest for greater efficient, I recently went back to an approach that I tried and abandoned before: to annotate a PDF on an iPad using an electronic pen. This time I had a much better iPad (an iPad Air), a much better pen (the [Jot Dash](http://www.adonit.net/jot/dash/)), and a much better app for annotations ([Notability](http://www.gingerlabs.com)). It all worked, but I’m not sure if it was the most efficient approach in terms of time use. 
 
 <figure class="float-right width-25">
-  <img src="/images/ipad-pdf-annotations.jpg"/>
+  <img src="/blog/images/ipad-pdf-annotations.jpg"/>
 </figure>
 
 The experience was pleasant enough. Notability is a great application, and the Jot Dash – with a much finer point than the pens I’ve tried before – worked very well. The procedure was simple: put the PDF in Dropbox on my computer, import the PDF from Dropbox in Notability on the iPad, annotate, then upload the annotated result to Dropbox and open it again on my laptop. I was pleased that I could read the result in Acrobat: there were no issues that I could see with the annotations produced on the iPad.
