@@ -3,7 +3,7 @@ title: Annotating PDFs on an iPad
 description: Trying again to use an ipad productively
 toc: false
 layout: post
-categories: [effectiveness, ipad, research]
+categories: [life-hacks, ipad]
 keywords: [research, PDF]
 ---
 

@@ -3,7 +3,7 @@ title: Git prepare-commit-msg hook for running Python pep8
 description: Setting up a code style check
 toc: false
 layout: post
-categories: [software-development]
+categories: [software, git, efficiency-hacks]
 keywords: [git]
 ---
 

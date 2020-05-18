@@ -3,7 +3,7 @@ title: SoManyLanguages! SoManyLicenses!
 description: New repositories to list all programming languages in use
 toc: false
 layout: post
-categories: [software-development]
+categories: [software]
 keywords: [programming-languages]
 ---
 

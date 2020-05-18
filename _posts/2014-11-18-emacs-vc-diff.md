@@ -3,7 +3,7 @@ title: Adapting Emacs's vc diff for word-oriented diffs
 description: Modifying vc-mode's diff to work better when soft-wrapping
 toc: false
 layout: post
-categories: [emacs]
+categories: [software, emacs]
 keywords: [hummingbirds]
 ---
 

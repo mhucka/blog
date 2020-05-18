@@ -3,7 +3,7 @@ title: Math shortcuts for the LaTeX-inclined
 description: A tip for how to type LaTeX math symbols anywhere by using Unicode characters
 toc: false
 layout: post
-categories: [latex, efficiency-hacks]
+categories: [life-hacks, latex]
 keywords: []
 ---
 

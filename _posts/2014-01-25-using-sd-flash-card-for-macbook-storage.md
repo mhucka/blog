@@ -3,7 +3,7 @@ title: Using an SD flash card for extra storage in a MacBook Pro
 description: A tip for a simple way to add disk space on some laptops
 toc: false
 layout: post
-categories: [mac, hardware]
+categories: [life-hacks, hardware, mac]
 keywords: []
 ---
 
