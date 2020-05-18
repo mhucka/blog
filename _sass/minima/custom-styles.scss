@@ -80,17 +80,18 @@ body {
     -o-hyphens: auto;
     word-break: break-word;
     hyphens: auto;
-    background: url('http://www.cds.caltech.edu/~mhucka/media/images/textures/noisy_grid_green.png');
+    background: url('/assets/noisy_grid_green.png');
 }
 
 header.site-header {
-    background-color: #555855;
+    background-color: #252825;
     color: white;
     padding: 0;
-    background: linear-gradient(#555855, #505050);
+    background: linear-gradiet(#252825, #202020);
     min-height: 65px;
 }
 
+/*
 .wrapper {
     max-width: 92%;
     background-color: rgba(255, 255, 255, 0.8);
@@ -102,8 +103,16 @@ header.site-header {
     -moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
 }
+*/
+
+.wrapper {
+    max-width: 98%;
+    background-color: inherit;
+    padding-top: 0;
+}
 
 header.site-header .wrapper {
+    max-width: 92%;
     font-family: 'Cabin', sans-serif;
     color: white;
     background-color: transparent;
@@ -126,7 +135,7 @@ main, article {
     font-family: 'Rubik', sans-serif;
     font-size: 12pt;
     line-height: 1.4;
-    color: #5a5a5a;
+    color: #505050;
 }
 
 /* Section numbering */
@@ -141,7 +150,7 @@ a {
 }
 
 a:visited {
-    color: #777;
+    color: #505050;
     text-decoration: underline;
 }
 
@@ -178,6 +187,26 @@ article h3:before {
 
 /* Styling */
 
+.home p {
+    margin-bottom: 1em;
+}
+
+.home p.post-meta-description {
+    margin-bottom: 0.5em;
+}
+
+.post {
+    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25em;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    padding: 1.5em 2em 2em 2em;
+    -webkit-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
+}
+
 .post-list {
     padding-bottom: 1em;
 }
@@ -190,6 +219,7 @@ article h3:before {
 
 .post-list li {
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 h1 {
@@ -198,7 +228,7 @@ h1 {
 }
 
 .post-list h3 .post-link {
-    font-size: 1em;
+    font-size: 0.85em;
 }
 
 .post-content h1,
@@ -357,6 +387,19 @@ ol li {
     margin-top: 0.5em;
 }
 
+.post-content blockquote {
+    font-size: 11pt;
+    margin-bottom: 0.75em;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 0.75em;
+}
+
 .dropdown-menu li a {
     line-height: 1.2;
     color: black;
@@ -498,6 +541,20 @@ figure.width-66 {
     padding-left: 1em;
 }
 
+.search-result-highlight {
+  background-color: #ffffcc;
+}
+
+.search-result-rel-date {
+    color: purple;
+}
+
+.search-result-preview {
+    color: #777777;
+    font-style: oblique;
+    margin-bottom: 0.5em;
+}
+
 footer {
     padding-bottom: 0;
 }
@@ -558,29 +615,37 @@ footer .feed-subscribe .svg-icon.orange {
     display: none;
 }
 
-a[href*="categories/#sysbio"]           { color: #996611; }
+/* The first in each group is the main category, which fastpages
+(or maybe jekyll?) puts in a top-level directory. */
 
-a[href*="categories/#sbml"]             { color: #009999; }
+a[href*="categories/#sysbio"]            { color: #0099ab; text-decoration: none; border: 1px solid #0099ab; border-radius: 3px; padding: 1px 2px;}
+a[href*="categories/#sbml"]              { color: #0099ab; text-decoration: none; }
 
-a[href*="categories/#hardware"]         { color: #268bd2; }
-a[href*="categories/#mac"]              { color: orange; }
+a[href*="categories/#machine-learning"]  { color: purple; text-decoration: none; border: 1px solid purple; border-radius: 3px; padding: 1px 2px;}
+a[href*="categories/#HTR"]               { color: #9b59b6; text-decoration: none; }
 
-a[href*="categories/#photography"]      { color: #80a000; }
+a[href*="categories/#cognitive-science"] { color: #009900; text-decoration: none; border: 1px solid #009900; border-radius: 3px; padding: 1px 2px;}
 
-a[href*="categories/#humor"]            { color: #009900; }
+a[href*="categories/#software"]          { color: #d00000; text-decoration: none; border: 1px solid #d00000; border-radius: 3px; padding: 1px 2px;}
+a[href*="categories/#development"]       { color: #800000; text-decoration: none; }
+a[href*="categories/#emacs"]             { color: #800000; text-decoration: none; }
+a[href*="categories/#git"]               { color: #800000; text-decoration: none; }
+a[href*="categories/#python"]            { color: #800000; text-decoration: none; }
+a[href*="categories/#latex"]             { color: #800000; text-decoration: none; }
+a[href*="categories/#mediawiki"]         { color: #800000; text-decoration: none; }
+a[href*="categories/#macos"]             { color: #800000; text-decoration: none; }
 
-a[href*="categories/#life-hacks"]       { color: #cc00dd; }
-a[href*="categories/#effectiveness"]    { color: #cc00dd; }
-a[href*="categories/#efficiency-hacks"] { color: #cc00dd; }
+a[href*="categories/#life-hacks"]        { color: #cF7010; text-decoration: none; border: 1px solid #cF7010; border-radius: 3px; padding: 1px 3px;}
+a[href*="categories/#efficiency-hacks"]  { color: orange; text-decoration: none; }
+a[href*="categories/#hardware"]          { color: orange; text-decoration: none; }
+a[href*="categories/#mac"]               { color: orange; text-decoration: none; }
+a[href*="categories/#ipad"]              { color: orange; text-decoration: none; }
 
-a[href*="categories/#software"]         { color: #d00000; }
-a[href*="categories/#emacs"]            { color: #d00000; }
-a[href*="categories/#git"]              { color: #d00000; }
-a[href*="categories/#python"]           { color: #d00000; }
-a[href*="categories/#latex"]            { color: #d00000; }
-a[href*="categories/#mediawiki"]        { color: #d00000; }
-a[href*="categories/#macos"]            { color: #d00000; }
+a[href*="categories/#photography"]       { color: #80a000; text-decoration: none; border: 1px solid #80a000; border-radius: 3px; padding: 1px 2px;}
 
+/* other colors:
+   #996611
+ */
 
 /*
  * Override the code highlighting theme settings.
