@@ -34,10 +34,10 @@ layout: default
        • {% include reading_time.html -%}
     </p>
 
-    {% if page.categories.size > 0 and site.show_tags %}
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
-      {% for category in  page.categories  %}
-        <a class="category-tags-link" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+    {% if page.keywords.size > 0 and site.show_tags %}
+      <p class="keywords">
+      {% for keyword in page.keywords  %}
+        <a class="keywords-link" href="{{site.baseurl}}/categories/#{{keyword|slugize}}">{{keyword}}</a>
         {% unless forloop.last %}&nbsp;{% endunless %}
       {% endfor %}
       </p>
