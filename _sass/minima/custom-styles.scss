@@ -305,18 +305,14 @@ header.post-header .page-description {
     font-size: 10pt;
 }
 
-.category-tags {
+.keywords {
     font-size: 0.8em;
     text-align: center;    
     padding-bottom: 1em;
     border-bottom: 1px solid #ddd;
 }
 
-i.category-tags-icon {
-    display: none;
-}
-
-.category-tags-link:before {
+.keywords-link:before {
     content: "#";
 }
 
@@ -618,33 +614,55 @@ footer .feed-subscribe .svg-icon.orange {
 /* The first in each group is the main category, which fastpages
 (or maybe jekyll?) puts in a top-level directory. */
 
-a[href*="categories/#sysbio"]            { color: #0099ab; text-decoration: none; border: 1px solid #0099ab; border-radius: 3px; padding: 1px 2px;}
-a[href*="categories/#sbml"]              { color: #0099ab; text-decoration: none; }
+a[href*="categories/#sysbio"]                   { color: #0099ff; text-decoration: none; }
+a[href*="categories/#sysbio"]:visited           { color: #0099ff; text-decoration: none; }
+a[href*="categories/#sbml"]                     { color: #0079ab; text-decoration: none; }
+a[href*="categories/#sbml"]:visited             { color: #0079ab; text-decoration: none; }
 
-a[href*="categories/#machine-learning"]  { color: purple; text-decoration: none; border: 1px solid purple; border-radius: 3px; padding: 1px 2px;}
-a[href*="categories/#HTR"]               { color: #9b59b6; text-decoration: none; }
+a[href*="categories/#machine-learning"]         { color: #f00000; text-decoration: none; }
+a[href*="categories/#machine-learning"]:visited { color: #f00000; text-decoration: none; }
+a[href*="categories/#python"]                   { color: #ff4d4d; text-decoration: none; }
+a[href*="categories/#python"]:visited           { color: #ff4d4d; text-decoration: none; }
+a[href*="categories/#HTR"]                      { color: #ff1a1a; text-decoration: none; }
+a[href*="categories/#HTR"]:visited              { color: #ff1a1a; text-decoration: none; }
+a[href*="categories/#software"]                 { color: #d02090; text-decoration: none; }
+a[href*="categories/#software"]:visited         { color: #d02090; text-decoration: none; }
+a[href*="categories/#AI"]                       { color: #d00000; text-decoration: none; }
+a[href*="categories/#AI"]:visited               { color: #d00000; text-decoration: none; }
+a[href*="categories/#networking"]               { color: #cc3300; text-decoration: none; }
+a[href*="categories/#networking"]:visited       { color: #cc3300; text-decoration: none; }
+a[href*="categories/#git"]                      { color: #ff8566; text-decoration: none; }
+a[href*="categories/#git"]:visited              { color: #ff8566; text-decoration: none; }
+a[href*="categories/#emacs"]                    { color: #cF7010; text-decoration: none; }
+a[href*="categories/#emacs"]:visited            { color: #cF7010; text-decoration: none; }
+a[href*="categories/#latex"]                    { color: #dfc9cc; text-decoration: none; }
+a[href*="categories/#latex"]:visited            { color: #dfc9cc; text-decoration: none; }
+a[href*="categories/#macos"]                    { color: #ffb3b3; text-decoration: none; }
+a[href*="categories/#macos"]:visited            { color: #ffb3b3; text-decoration: none; }
 
-a[href*="categories/#cognitive-science"] { color: #009900; text-decoration: none; border: 1px solid #009900; border-radius: 3px; padding: 1px 2px;}
+a[href*="categories/#hardware"]                 { color: #e900f0; text-decoration: none; }
+a[href*="categories/#hardware"]:visited         { color: #e900f0; text-decoration: none; }
+a[href*="categories/#mac"]                      { color: #bf00cf; text-decoration: none; }
+a[href*="categories/#mac"]:visited              { color: #bf00cf; text-decoration: none; }
+a[href*="categories/#ipad"]                     { color: #df33cc; text-decoration: none; }
+a[href*="categories/#ipad"]:visited             { color: #df33cc; text-decoration: none; }
 
-a[href*="categories/#software"]          { color: #d00000; text-decoration: none; border: 1px solid #d00000; border-radius: 3px; padding: 1px 2px;}
-a[href*="categories/#development"]       { color: #800000; text-decoration: none; }
-a[href*="categories/#emacs"]             { color: #800000; text-decoration: none; }
-a[href*="categories/#git"]               { color: #800000; text-decoration: none; }
-a[href*="categories/#python"]            { color: #800000; text-decoration: none; }
-a[href*="categories/#latex"]             { color: #800000; text-decoration: none; }
-a[href*="categories/#mediawiki"]         { color: #800000; text-decoration: none; }
-a[href*="categories/#macos"]             { color: #800000; text-decoration: none; }
+a[href*="categories/#life-hacks"]               { color: #aaaa55; text-decoration: none; }
+a[href*="categories/#life-hacks"]:visited       { color: #aaaa55; text-decoration: none; }
+a[href*="categories/#efficiency-hacks"]         { color: #ffad33; text-decoration: none; }
+a[href*="categories/#efficiency-hacks"]:visited { color: #ffad33; text-decoration: none; }
+a[href*="categories/#research"]                 { color: #9cdc00; text-decoration: none; }
+a[href*="categories/#research"]:visited         { color: #9cdc00; text-decoration: none; }
 
-a[href*="categories/#life-hacks"]        { color: #cF7010; text-decoration: none; border: 1px solid #cF7010; border-radius: 3px; padding: 1px 3px;}
-a[href*="categories/#efficiency-hacks"]  { color: orange; text-decoration: none; }
-a[href*="categories/#hardware"]          { color: orange; text-decoration: none; }
-a[href*="categories/#mac"]               { color: orange; text-decoration: none; }
-a[href*="categories/#ipad"]              { color: orange; text-decoration: none; }
+a[href*="categories/#photography"]              { color: #80a000; text-decoration: none; }
+a[href*="categories/#photography"]:visited      { color: #80a000; text-decoration: none; }
 
-a[href*="categories/#photography"]       { color: #80a000; text-decoration: none; border: 1px solid #80a000; border-radius: 3px; padding: 1px 2px;}
 
 /* other colors:
-   #996611
+#996611
+#9b59b6
+#d00000
+purple
  */
 
 /*
