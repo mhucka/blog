@@ -3,8 +3,8 @@ title: Using an SD flash card for extra storage in a MacBook Pro
 description: A tip for a simple way to add disk space on some laptops
 toc: false
 layout: post
-categories: [life-hacks, hardware, mac]
-keywords: []
+categories: [general]
+keywords: [life-hacks, hardware, mac]
 ---
 
 One never seems to have enough disk space on laptops, and that's especially true on Mac OS X systems.  It's surprising how quickly you can use up the space on even a 500 GB SSD drive once you add such things as multiple virtual machines (for software development on Windows and Linux), iTunes (for synchronizing my iPhone and iPad), bibliography management programs with gigabytes and gigabytes of PDFs, years of archives of meetings and workshops, etc.  Plus, the operating system's virtual memory files and sleep image take up a chunk of space.  On top of that, you have to leave at least 10% of the disk space free for good file system performance, so you never really get to use the full 500 GB anyway.

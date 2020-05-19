@@ -3,8 +3,8 @@ title: Annotating PDFs on an iPad
 description: Trying again to use an ipad productively
 toc: false
 layout: post
-categories: [life-hacks, ipad]
-keywords: [research, PDF]
+categories: [general]
+keywords: [life-hacks, research, ipad]
 ---
 
 In my continuing quest for greater efficient, I recently went back to an approach that I tried and abandoned before: to annotate a PDF on an iPad using an electronic pen. This time I had a much better iPad (an iPad Air), a much better pen (the [Jot Dash](http://www.adonit.net/jot/dash/)), and a much better app for annotations ([Notability](http://www.gingerlabs.com)). It all worked, but I’m not sure if it was the most efficient approach in terms of time use. 

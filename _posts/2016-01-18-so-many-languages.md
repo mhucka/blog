@@ -3,8 +3,8 @@ title: SoManyLanguages! SoManyLicenses!
 description: New repositories to list all programming languages in use
 toc: false
 layout: post
-categories: [software]
-keywords: [programming-languages]
+categories: [computing]
+keywords: [software]
 ---
 
 For one of the projects I’m working on, we need comprehensive lists of programming languages, software licenses, and several other software-related topics. We could not find any existing single sources that were comprehensive enough. Wikipedia has a large number of pages about languages, it’s true, but it’s not complete. (Our project has been mining GitHub repositories and we found many others.)

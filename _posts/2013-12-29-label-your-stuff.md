@@ -3,8 +3,8 @@ title: Label your stuff—it just might come back to you
 description: Label your electronics to help people return them to you
 toc: false
 layout: post
-categories: [life-hacks, hardware]
-keywords: [labels]
+categories: [general]
+keywords: [life-hacks]
 ---
 
 <figure class="float-right width-25">

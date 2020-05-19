@@ -3,8 +3,8 @@ title: Math shortcuts for the LaTeX-inclined
 description: A tip for how to type LaTeX math symbols anywhere by using Unicode characters
 toc: false
 layout: post
-categories: [life-hacks, latex]
-keywords: []
+categories: [computing]
+keywords: [efficiency-hacks, latex, mac]
 ---
 
 When writing technical notes, you sometimes need to write mathematical symbols and expressions.  Most technical people who come from a math or computer science background learn how to write math expressions in TeX or LaTeX, but when writing in something *other* than a TeX/LaTeX-enabled application (say, a note-taking program like [Evernote](http://evernote.com)), you may not have direct access to TeX/LaTeX and you many not want to paste an image like something produced by [LaTeXiT](http://www.chachatelier.fr/latexit/).

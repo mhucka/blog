@@ -3,8 +3,8 @@ title: Git prepare-commit-msg hook for running Python pep8
 description: Setting up a code style check
 toc: false
 layout: post
-categories: [software, git, efficiency-hacks]
-keywords: [git]
+categories: [computing]
+keywords: [software, git, efficiency-hacks]
 ---
 
 Code style guidelines are important for enabling [collective code ownership](http://agileinaflash.blogspot.com/2009/02/collective-code-ownership.html):

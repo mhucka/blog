@@ -3,8 +3,8 @@ title: Adapting Emacs's vc diff for word-oriented diffs
 description: Modifying vc-mode's diff to work better when soft-wrapping
 toc: false
 layout: post
-categories: [software, emacs]
-keywords: [hummingbirds]
+categories: [computing]
+keywords: [software, emacs]
 ---
 
 A few years back, I changed how I work with text files (including LaTeX files) in Emacs: instead of using hard newlines to format paragraphs into lines, I use soft wrapping, and do not insert hard newlines except to break paragraphs.  This change was driven by the fact that, except for software development work, most modern editing environments (and most of what my colleagues send) assume soft-wrapped paragraphs.  This was an annoying change at first, but I worked out how to set up soft wrapping in Emacs so that I no longer really notice the difference.  However, one problem that remained involved the use of version control systems such as git: most of those systems are line-oriented by nature and they show differences in a line-oriented way by default.  The resulting diffs are basically unreadable if the source text does not contain hard line breaks.
