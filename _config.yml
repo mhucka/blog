@@ -63,9 +63,6 @@ exclude:
   - Makefile
   - "**/.#*"
 
-watch_exclude:
-  - "\\.#[^/\\\\]+$"
-
 # this setting allows you to keep pages organized in the _pages folder
 include:
   - _pages
