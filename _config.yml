@@ -61,6 +61,10 @@ exclude:
   - docker-compose.yml
   - action.yml
   - Makefile
+  - "**/.#*"
+
+watch_exclude:
+  - "\\.#[^/\\\\]+$"
 
 # this setting allows you to keep pages organized in the _pages folder
 include:
@@ -116,5 +120,5 @@ kramdown:
   syntax_highlighter: rouge
 
 scholar:
-  bibliography: lit.bib
+  bibliography: references.bib
   source: ./_bib
