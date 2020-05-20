@@ -3,7 +3,7 @@ title: A synopsis of Named Data Networking (NDN)
 description: NDN is an ongoing effort to improve the network architecture that underlays today's Internet
 toc: false
 layout: post
-categories: [computing, distributed-web]
+categories: [computing]
 keywords: [networking, hardware, software]
 ---
 
