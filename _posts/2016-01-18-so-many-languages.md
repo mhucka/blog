@@ -18,4 +18,4 @@ For this reason, I started two projects on GitHub:
 
 They are both similar in using plain old Markdown tables to provide the data, and GitHub’s slick facilities for [fork/pull/propose changes](https://help.github.com/articles/editing-files-in-another-user-s-repository/) make it super simple and easy for anyone to propose an update to the lists. And it’s been working – people have already contributed updates.
 
-So please go over and help flesh out the lists! Even a simple link addition is enough to get your name into the list of committers/contributors :-).
+So please go over to the repositories listed above and help flesh out the lists! Even a simple link addition is enough to get your name into the list of committers/contributors :-).
