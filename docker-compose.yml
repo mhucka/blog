@@ -21,9 +21,14 @@ services:
     <<: *fastpages
     command: /fastpages/action_entrypoint.sh
 
-  watcher:
-    <<: *fastpages
-    command: watchmedo shell-command --command /fastpages/action_entrypoint.sh --pattern *.ipynb --recursive --drop
+  # 2020-05-22 <mhucka@caltech.edu> Don't need until I have notebook pages.
+  # watcher:
+  #   <<: *fastpages
+  #   command: watchmedo shell-command --command /fastpages/action_entrypoint.sh --pattern *.ipynb --recursive --drop
+
+  # 2020-05-22 <mhucka@caltech.edu> I tried adding --livereload to jekyll
+  # but, even though pages were regenerated automatically, my browser did
+  # not refresh changed pages automatically.
 
   jekyll:
     working_dir: /data
@@ -35,5 +40,5 @@ services:
       - .:/data/
     command: >
      bash -c "gem install bundler
-     && jekyll serve --trace --strict_front_matter"
+     && jekyll serve --incremental --verbose --trace --strict_front_matter"
 
