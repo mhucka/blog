@@ -105,3 +105,5 @@ Being a relatively young project not based in an academic environment, there are
 
 
 # References
+
+{% bibliography --cited %}
