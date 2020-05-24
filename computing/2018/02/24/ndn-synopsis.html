@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>A synopsis of Named Data Networking (NDN) | So much to learn, so little brain</title>
+<meta name="generator" content="Jekyll v4.0.0">
+<meta property="og:title" content="A synopsis of Named Data Networking (NDN)">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="NDN is an ongoing effort to improve the network architecture that underlays today’s Internet">
+<meta property="og:description" content="NDN is an ongoing effort to improve the network architecture that underlays today’s Internet">
+<link rel="canonical" href="https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html">
+<meta property="og:url" content="https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html">
+<meta property="og:site_name" content="So much to learn, so little brain">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-02-24T00:00:00-06:00">
+<script type="application/ld+json">
+{"description":"NDN is an ongoing effort to improve the network architecture that underlays today’s Internet","mainEntityOfPage":{"@type":"WebPage","@id":"https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html"},"@type":"BlogPosting","url":"https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html","headline":"A synopsis of Named Data Networking (NDN)","dateModified":"2018-02-24T00:00:00-06:00","datePublished":"2018-02-24T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css">
+<link type="application/atom+xml" rel="alternate" href="https://mhucka.github.io/blog/feed.xml" title="So much to learn, so little brain">
+<link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>A synopsis of Named Data Networking (NDN) | So much to learn, so little brain</title>
+<meta name="generator" content="Jekyll v4.0.0">
+<meta property="og:title" content="A synopsis of Named Data Networking (NDN)">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="NDN is an ongoing effort to improve the network architecture that underlays today’s Internet">
+<meta property="og:description" content="NDN is an ongoing effort to improve the network architecture that underlays today’s Internet">
+<link rel="canonical" href="https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html">
+<meta property="og:url" content="https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html">
+<meta property="og:site_name" content="So much to learn, so little brain">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2018-02-24T00:00:00-06:00">
+<script type="application/ld+json">
+{"description":"NDN is an ongoing effort to improve the network architecture that underlays today’s Internet","mainEntityOfPage":{"@type":"WebPage","@id":"https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html"},"@type":"BlogPosting","url":"https://mhucka.github.io/blog/computing/2018/02/24/ndn-synopsis.html","headline":"A synopsis of Named Data Networking (NDN)","dateModified":"2018-02-24T00:00:00-06:00","datePublished":"2018-02-24T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link type="application/atom+xml" rel="alternate" href="https://mhucka.github.io/blog/feed.xml" title="So much to learn, so little brain">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body>
+<header class="site-header">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/blog/">So much to learn, so little brain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+<a class="page-link" href="/blog/about/">About</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a>
+</div>
+      </nav>
+</div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">A synopsis of Named Data Networking (NDN)</h1>
+<p class="page-description">NDN is an ongoing effort to improve the network architecture that underlays today's Internet</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2018-02-24T00:00:00-06:00" itemprop="datePublished">
+        Feb 24, 2018
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      19 min read
+    
+</span></p>
+
+    
+      <p class="keywords">
+      
+        <a class="keywords-link" href="/blog/categories/#networking">networking</a>
+         
+      
+        <a class="keywords-link" href="/blog/categories/#hardware">hardware</a>
+         
+      
+        <a class="keywords-link" href="/blog/categories/#software">software</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="introduction">Introduction</h1>
+
+<p>The network architecture that underlays today’s Internet is largely based around the concept of moving packets of data from one explicitly identified host to another.  It was designed and developed at a time in history when most computers were stationary, limited in number, far in-between, and trusted each other.  Internet Protocol (IP), the predominant networking protocol supporting the Internet, is concerned with addressing hosts and sending data packets between them—a pairwise point-to-point communications approach that made sense in the landscape of users and applications that existed in the 1970’s. However, modern uses of the Internet have evolved from their origins, and today, content references and distribution make up the majority of internet traffic.  The best estimate in mid-2017 puts the number of visible web pages at nearly 50 billion <a class="citation" href="#vandenbosch2016estimating">(van den Bosch et al., 2016)</a>, while in terms of data transmitted over the Internet, global IP traffic was estimated at 1.2 zettabytes in 2016 and is predicted to reach 3.3 zettabytes per year by 2021, with IP video traffic estimated to comprise 82 percent of that <a class="citation" href="#cisco2017zettabyte">(Cisco, 2017)</a>.  “In such a content-centric worldview, what a person wants, rather than where it is located, is what matters most; content, rather than the server on which content resides, becomes the starting point” <a class="citation" href="#Kurose2014-ur">(Kurose, 2014)</a>.</p>
+
+<p>The fact that most modern applications are not well matched to IP’s host-oriented architecture was already apparent to network architects two decades ago.  This led to efforts by researchers and funding agencies to explore new architectural designs in the early 2000’s.  One outcome of this work was the research on Content-Centric Networking <a class="citation" href="#Stanik2009-yu">(Stanik, 2009)</a>, which later led to the <em>Named Data Network</em> (NDN) project <a class="citation" href="#Jacobson2009-nt">(Jacobson et al., 2009; Jacobson et al., 2012)</a>.</p>
+
+<p>NDN changes the focus of network services from delivering packets to a destination (the basic IP approach), to requesting data by name.  Architecturally, NDN puts named data chunks at the “thin waist” of the network protocol stack, replacing host-addressed IP packets.  (See the next figure.)  The name in an NDN packet can refer to anything: a file, a data segment from a movie, a data stream endpoint from an environmental sensor, a command to control something, etc.  Data chunks themselves are signed digitally, with a certification scheme that allows a consumer to verify that the content was produced by the expected source and that the data has not been tampered with.</p>
+
+<figure>
+  <img class="no-shadow width-66" src="/blog/images/ndn-hourglass.svg">
+  <figcaption>No discussion of Internet protocols is complete without the canonical hourglass diagram of the network stack.  (Left) Today's IP-based Internet architecture. (Right) The NDN-based network architecture.  The "thin waist" part of NDN consists of data chunks; this replaces the Internet Protocol packets in the regular IP stack. (Figure based on diagram by Jacobsen et al., 2012.)
+</figcaption>
+</figure>
+
+<p>During normal operation, a user application generates requests for content and these requests are forwarded between NDN routers in a network until they reach the relevant content source(s).  The nature of how data is packaged in NDN (discussed below) allows content can be cached or delivered from anywhere else, too.  The provision for the network infrastructure to cache content as a by-product of its operation offers the potential for content to be found and reused closer to user destinations, thereby reducing network load and response latency.  The nature of NDN data also also the content <em>itself</em> to be secured—not by securing the communication channel (which is how IP does it) but by securing the chunks of data.  This is fundamentally a better match to the needs of today’s Internet applications.</p>
+
+<h1 id="general-system-components-and-operation">General system components and operation</h1>
+
+<p>NDN communication is initiated when a consumer makes a request for data. In the NDN protocol, a request for data is expressed by broadcasting an <em>Interest Packet</em> on a network interface connected to an NDN network.  Any node in the network having data that satisfies the Interest can respond with a <em>Data Packet</em>.  A Data Packet is only transmitted in response to an Interest Packet, and it consumes that Interest, thereby maintaining a flow balance.</p>
+
+<p>Interest Packets primarily consist of a name and optional selectors to specify more precisely the data being requested; Data Packets consist of a name, some metadata, digital signature data, and the content requested <a class="citation" href="#Jacobson2012-jc">(Jacobson et al., 2012)</a>.  As discussed further below, names in NDN are typically structured hierarchically.  A Data Packet “satisfies” an Interest if the name in the Interest is a prefix of the Name in the Data Packet; in other words, if the Data is in the subtree implied by the name in the Interest.</p>
+
+<figure>
+  <img class="no-shadow width-66" src="/blog/images/ndn-packets.svg">
+  <figcaption style="text-align: center">Illustration of packets in NDN.
+</figcaption>
+</figure>
+
+<p>Routers forward Interest Packets to producers that can potentially answer the requests.  In the general case, a producer sends back to the consumer by retracing the path through the network in reverse; however, caching may alter this path in practice.</p>
+
+<h2 id="ndn-router-architecture">NDN router architecture</h2>
+
+<p>To support the operation of NDN networks, there are three main architectural elements in NDN routers: a content store, a pending interest table, and a forwarding information base.</p>
+
+<ul>
+  <li>
+    <p>The <em>Content Store</em> (CS): An Data Packet in NDN is idempotent, self-identifying, and self-authenticating.  This means that any given data chunk can be cached and served to multiple consumers.  The content store in an NDN router is used to cache data temporarily that the router sees in response to Interest Packets, so that if the same Interest Packet is requested again in the future by other consumers, the router can provide the data directly without routing the request to the source again.  This increases data sharing, reduces retrieval time and reduces bandwidth consumption.</p>
+  </li>
+  <li>
+    <p>The <em>Pending Interest Table</em> (PIT): To track requests for data that have not yet been satisfied, an NDN router maintains an entry for each incoming Interest Packet until its corresponding Data Packet arrives or the time-to-live parameter on the request expires.  In NDN, only Interest Packets are routed, and this tracking of packets in effect leaves a trail of breadcrumbs from requester to producer.  The PIT entries are used to forward Data Packets back to consumers, thus following the breadcrumbs.  PIT entries are erased after they are used to forward a matching Data Packet.</p>
+  </li>
+  <li>
+    <p>The <em>Forwarding Information Base</em> (FIB): An NDN router tracks reachable destinations and the next hops in the network using an FIB. The contents of the FIB are created according to a routing protocol used by an NDN network.  Unlike the equivalent in IP routing, an FIB entry has a list of outgoing interfaces rather than a single one because in NDN, multiple sources can be queried for data simultaneously.</p>
+  </li>
+</ul>
+
+<!--
+A design principle in NDN is stateful forwarding, whereby NDN routers keep state information about recently-forwarded packets; this allows such things as flow balance, loop detection, caching, smart forwarding, and more.
+-->
+
+<p>The following diagram illustrates the basic processes that take place in an NDN router in response to Interest Packets and Data Packets. The top half shows an Interest Packet arriving at a router. If the router finds an entry for the named data item in its CS, it returns the data on the interface through which the Interest Packet arrived. Otherwise, it next checks the PIT to see if something else has already requested the same data. If it finds a match in the PIT, it adds the interest of the new request to the list of requesters in the PIT entry. When a Data Packet matching an Interest Packet eventually arrives in response to the request, it is forwarded to multiple requesters based on the list in the PIT (a process known as interest aggregation). Finally, if no PIT entry is found, the Interest Packet is passed to the FIB, which performs longest-prefix match (LPM) on the name to look for a network interface that can answer the request. The router forwards the Interest Request to the next hop based on the most specific match in the FIB, and also creates a new PIT entry to identify the router interface on which the interest is pending. If no suitable match is found in the FIB, then the Interest Packet is flooded to all the outgoing interfaces or else deleted (depending on the router’s policies).</p>
+
+<figure align="center">
+  <img class="no-shadow width-66" src="/blog/images/main-ndn-router-components.svg">
+  <figcaption>Illustration of the main components of an NDN router. The top half illustrates the actions when an Interest Packet reaches the router; the bottom half represents the actions when a Data Packet arrives.  (Diagram based on figure by Saxena et al., which in turn is based on figures from NDN project reports <a class="citation" href="#Saxena2016-nf">(Saxena et al., 2016; Zhang et al., 2014)</a>.)
+  </figcaption>
+</figure>
+
+<p>The bottom half of the diagram shows the process when a Data Packet arrives at the router.  The process is simpler because Data Packets are not routed in NDN networks—they only follow the chain of PIT entries back to requester(s).  Upon an incoming Data Packet, a router first searches its PIT for entries that requested the same data item.  If a match is found, the data is passed to all interfaces mentioned in the list, and (depending on the router’s caching policy) also cached in the CS.  If no matching PIT entry is found, it means the data was unsolicited and the Data Packet is dropped.</p>
+
+<h2 id="data-naming-in-ndn">Data naming in NDN</h2>
+
+<p>Interest and Data Packets do not carry any host or interface addresses.  A “name” in NDN is a sequence of bit strings.  The interpretation of names is application-dependent, although the components are usually structured hierarchically and often interpretable as character strings such as “/edu.institution/something/somethingelse”.  Hierarchical names of the form “/x/y/z” resemble web URLs, and so are likely to be familiar and convenient for human users to work with; however, the names are opaque to NDN, and delimiters are not part of the names and not included in packet encodings. All that NDN routers do is pay attention to is the structure of names.  Name components may even be encrypted.</p>
+
+<p>The components in names are used to perform hierarchical prefix matching. The first or highest-level component of names are globally-routable names (i.e., namespaces).  These may each be controlled by separate entities, or multiple namespace prefixes may be controlled by the same entity, and the entities may be distributed on a global network or they may be local (e.g., local servers, local sensors that produce data, etc.) Globally-available data must have globally-unique names, but local communications involving local routing can rely on local names.</p>
+
+<p>Routers forward Interest Packets to data producers based on the name of the data in the packet, and Data Packets are returned based on the PIT information in routers established when the packet was forwarded from router to router to (eventual) producer.  Generally, one Interest Packet results in one Data Packet, but fetching large objects that may be divided into multiple Data Packets requires other approaches.  One option is for consumers and producers to agree on a dynamic naming scheme that can be used by applications to allow consumers to construct names deterministically without having seen the entire data ahead of time. Another option is to use interest selectors in Interest Packets. The NDN packet format defines a number of operators that can be used in interest selectors to specify wildcard matches against data name suffixes and/or child elements, and this can be used to request multipart data such as might happen when requesting video streams.</p>
+
+<h2 id="caching">Caching</h2>
+
+<p>An important aspect of NDN operation are the processes of caching data at network nodes.  Implementing cache support in NDN requires the solution of two main problems <a class="citation" href="#Saxena2016-nf">(Saxena et al., 2016)</a>, cache placement and cache update, both of which continue to be active research areas today.  As its name implies, the topic of <em>cache placement</em> is concerned with storing copies of data: where to cache them in the network, how many copies to cache, how to coordinate caching policies between routers, and so on.  Conversely, <em>cache update</em> is concerned with the procedures implemented by routers for updating the content held in caches.  Issues that enter into the equation include the popularity of any given piece of content.</p>
+
+<p>Several benefits accrue from caching.  First, content can be uncoupled from producers, so that producers do not have to be accessed (or even accessible) every time a consumer asks for particular content—potentially eliminating a single point of failure.  Caching performed by a node in the network can help cope with intermittent network connectivity; mobile nodes can act as content routers between physically disconnected networks.  Second, it reduces load on the producer by making content available from multiple sources (i.e., not just the producer but cache sources).  Third, if managed properly, it can support more efficient multicasting to many consumers.  And fourth, caching can reduce network load and network latency <a class="citation" href="#Saxena2016-nf">(Saxena et al., 2016)</a>.</p>
+
+<h2 id="forwarding">Forwarding</h2>
+
+<p>As mentioned above, the operation of an NDN network involves queries by consumers, in the form of Interest Packets being passed around the network until they reach a consumer, who (in the generic case) respond with a Data Packet that is passed back to the consumer.  This operation requires network routers to support efficient interpretation of request and data packets and manage PIT and FIB tables.  Since routers need to process a very high number of network transactions per second, the development of approaches for scalable forwarding has been an important topic in NDN development.</p>
+
+<p>The challenge in forwarding packets lies in NDN’s use of unbounded names rather than fixed-length host addresses.  This means that routers need to perform character-based prefix matching; at the same time, they also need to manage millions or billions of entries in their tables in order to route network traffic.  Operations need to be performed with low latencies, which requires the fastest memory accesses possible, but processors typically have limited amounts of fast on-chip RAM.  Thus, operation and management of the PIT table can become a bottleneck.  A variety of approaches are being pursued to solve this problem <a class="citation" href="#Saxena2016-nf">(Saxena et al., 2016)</a>.</p>
+
+<p>A separate concern in implementing NDN routers is the FIB table used for Interest Packet forwarding.  Once again, the data structures and hardware used to implement the FIB need to be efficient and scale to a large number of constantly-changing entries.  This has led to work on both strategies and hardware implementations.  On the strategy front, implementing efficient forwarding approaches requires addressing issues of discovering and selecting paths for Interest Packets, congestion control, and more.  On the hardware front, work in this area has focused not only on CPU-based approaches but also GPU-based and FPGA-based solutions.</p>
+
+<h1 id="security-and-privacy">Security and privacy</h1>
+
+<p>The architecture of IP was not designed with an eye towards secure data distribution.  NDN is fundamentally different and directly implements content-based security: “protection and trust are properties of the content itself, not of the connections over which it travels” <a class="citation" href="#Jacobson2012-jc">(Jacobson et al., 2012)</a>.  In NDN, every datagram is cryptographically authenticated.  This not only avoids some of the existing issues of host-based trust and security; it means that NDN provides end-to-end security between content producer and consumer, and data in NDN is <em>secure at rest, not just during transmission</em>.</p>
+
+<h2 id="data-security">Data security</h2>
+
+<p>Every Data Packet in NDN is digitally signed using public key cryptography, allowing a receiver to verify the authenticity of the data. The NDN data packet format includes a field for the signature, and a field called the key locator. The key locator is the name (in the NDN sense) of the public key that was used to create the signature. In NDN, a key is another packet of named NDN content, and like all NDN data, it is signed too, to verify it. A consumer can follow the chain of keys to a root key to authenticate any Data Packet. This arrangement provides authentication (a recipient can verify the content was created by a known sender) and data integrity (a recipient can be sure the content has not been modified). The digital signing of packets not only means that data is secured while it is in transmission: since NDN Data Packets are also units of storage, the scheme protects data at rest. Cached data and stored data are secured as a consequence.</p>
+
+<p>Producers can chose the signature algorithm.  Verification of signatures may involve multiple rounds of fetching and decryption to get to follow the chain of signatures to a recognized signature; a way to cope with the inherent performance issues is for an NDN-based system to cache validated certificates for some amount of time.</p>
+
+<p>The content of Data Packets is up to applications, and the contents could also be encrypted in addition to the Data Packet itself being signed.</p>
+
+<h2 id="network-security">Network security</h2>
+
+<p>Some types of network attacks that are common against today’s network infrastructure are mitigated or eliminated by the virtue of how NDN works. For example, port scans of given hosts to find running services is not feasible in NDN: there are no hosts in the same sense as there are in TCP/IP.  The equivalent attack would require some kind of “name scan” in order to guess what services might be provided under a given namespace, but since there can be an essentially infinite number of names, the attack is impractical.</p>
+
+<p>Some types of attacks are still possible. For example, bandwidth depletion attacks involve flooding a victim with requests for content. This is a potential attack approach in NDN, but it is mitigated by the fact that once retrieved, content will be cached by intermediate routers between an attacker and providers for a target namespace.</p>
+
+<p>Some new types of attacks are introduced by NDN. One example is <em>interest flooding</em>, in which attackers unleash a high number of unsatisfiable Interest Packets, causing routers to process a large number of packets (including potentially filling their PIT with fake requests). Another potential attack is <em>content cache poisoning</em>, in which an attacker seeks to overload router caches with corrupted Data Packets possessing fake signatures. While fakes can be detected, the overhead of processing them may impact router and network performance. These new types of attacks are under study by NDN developers.</p>
+
+<h2 id="privacy-of-communications">Privacy of communications</h2>
+
+<p>A final area of development concerns privacy of communications. The nature of the threat is different from current host-based networking: data itself can be secured as described above, and since NDN does not have destination hosts, the question of who is consuming what content is much more difficult to answer.  However, certain kinds of analysis could still compromise privacy. An example is that the names of data being requested could perhaps be used via some kind of correlation analysis to infer producers and/or consumers.</p>
+
+<!--
+# Consequences of NDN's architecture
+
+The resulting system overcomes a number of limitations caused by the use of addresses in IP.  First, network address space exhaustion is not an issue---NDN namespaces are unlimited, unlike IPv4 addresses.  Second, network address translation (NAT) is no longer necessary when crossing different subnetworks or domains: since there are no addresses in NDN (public or private), there is no need for address translation.  Third, address assignment and management in local networks is no longer necessary.
+
+challenges...
+
+-->
+
+<h1 id="additional-reading">Additional reading</h1>
+
+<p>The following list of materials, in the order given here, may help readers become more familiar with NDN.</p>
+
+<ol>
+  <li>Edens and Scott’s 2017 article in IEEE Spectrum <a class="citation" href="#Edens2017-mx">(Edens &amp; Scott, 2017)</a> is an excellent, non-technical and highly readable overview of content-centric networking.  Though the authors scarcely mention NDN by name, everything they describe is true of NDN.</li>
+  <li>The survey by Xylomenos et al. <a class="citation" href="#Xylomenos2014-pp">(Xylomenos et al., 2014)</a> is one of the best and most understandable, moderately-technical explanations of information-centric networking in general.  It covers several efforts including NDN, and while it is slightly dated (being published in 2014), it is still worth reading to understand the context of NDN.</li>
+  <li>Jacobson et al.’s 2012 CACM paper is slightly out of date with respect to the state of NDN today, but it is a good and concise explanation of all the essential components of the NDN architecture <a class="citation" href="#Jacobson2012-jc">(Jacobson et al., 2012)</a>.</li>
+  <li>Saxena et al.’s 2016 paper is the most comprehensive survey of work on NDN so far <a class="citation" href="#Saxena2016-nf">(Saxena et al., 2016)</a>.  It gathers into one place a summary and references to work on all aspects of NDN, and provides helpful taxonomies of different areas of work.  (Note that the abstract may leave a poor impression about the quality of the writing, but the rest of the paper is considerably better.)</li>
+  <li>The paper by Yu et al. explains in good detail how security and trust are expected to work in NDN <a class="citation" href="#Yu2015-gz">(Yu et al., 2015)</a>.</li>
+  <li>The IETF Internet Draft document <a href="https://tools.ietf.org/html/draft-irtf-icnrg-deployment-guidelines-00">draft-rahman-icnrg-deployment-guidelines-00</a> from the Information-Centric Networking Research Group <a class="citation" href="#Rahman2018-al">(Rahman et al., 2018)</a> provides the most up-to-date description of potential deployment scenarios for NDN.</li>
+</ol>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography">
+<li><span id="vandenbosch2016estimating">van den Bosch, A., Bogers, T., &amp; de Kunder, M. (2016). Estimating search engine index size variability: a 9-year longitudinal study. <i>Scientometrics</i>, <i>107</i>, 839–856. https://doi.org/10.1007/s11192-016-1863-z</span></li>
+<li><span id="cisco2017zettabyte">Cisco. (2017). <i>The Zettabyte Era: Trends and Analysis</i> [White paper]. https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/vni-hyperconnectivity-wp.html</span></li>
+<li><span id="Kurose2014-ur">Kurose, J. (2014). Information-centric networking: The evolution from circuits to
+             packets to content. <i>Computer Networks</i>, <i>66</i>, 112–120. https://doi.org/10.1016/j.comnet.2014.04.002</span></li>
+<li><span id="Stanik2009-yu">Stanik, J. (2009). A Conversation with Van Jacobson. <i>Queueing Systems. Theory and Applications</i>, <i>7</i>(1), 9. https://doi.org/10.1145/1508211.1508215</span></li>
+<li><span id="Jacobson2009-nt">Jacobson, V., Smetters, D. K., Thornton, J. D., Plass, M. F., Briggs, N. H., &amp; Braynard, R. L. (2009). Networking named content. <i>Proceedings of the 5th International Conference on Emerging
+               Networking Experiments and Technologies (CoNEXT’09)</i>, 1–12.</span></li>
+<li><span id="Jacobson2012-jc">Jacobson, V., Smetters, D. K., Thornton, J. D., Plass, M., Briggs, N., &amp; Braynard, R. (2012). Networking named content. <i>Communications of the ACM</i>, <i>55</i>(1), 117–124. https://doi.org/10.1145/2063176.2063204</span></li>
+<li><span id="Saxena2016-nf">Saxena, D., Raychoudhury, V., Suri, N., Becker, C., &amp; Cao, J. (2016). Named Data Networking: A survey. <i>Computer Science Review</i>, <i>19</i>, 15–55. https://doi.org/10.1016/j.cosrev.2016.01.001</span></li>
+<li><span id="Zhang2014-zn">Zhang, L., Afanasyev, A., Burke, J., Jacobson, V., Claffy, K., Crowley, P., Papadopoulos, C., Wang, L., &amp; Zhang, B. (2014). Named data networking. <i>ACM SIGCOMM Computer Communication Review</i>, <i>44</i>(3), 66–73. https://doi.org/10.1145/2656877.2656887</span></li>
+<li><span id="Edens2017-mx">Edens, G., &amp; Scott, G. (2017). The packet protector. <i>IEEE Spectrum</i>, <i>54</i>(4), 42–48. https://doi.org/10.1109/MSPEC.2017.7880457</span></li>
+<li><span id="Xylomenos2014-pp">Xylomenos, G., Ververidis, C. N., Siris, V. A., Fotiou, N., Tsilopoulos, C., Vasilakos, X., Katsaros, K. V., &amp; Polyzos, G. C. (2014). A Survey of Information-Centric Networking Research. <i>IEEE Communications Surveys &amp; Tutorials</i>, <i>16</i>(2), 1024–1049. https://doi.org/10.1109/SURV.2013.070813.00063</span></li>
+<li><span id="Yu2015-gz">Yu, Y., Afanasyev, A., Clark, D., Claffy, K., Jacobson, V., &amp; Zhang, L. (2015). Schematizing Trust in Named Data Networking. <i>Proceedings of the 2nd ACM Conference on Information-Centric
+               Networking</i>, 177–186. https://doi.org/10.1145/2810156.2810170</span></li>
+<li><span id="Rahman2018-al">Rahman, A., Trossen, D., Kutscher, D., &amp; Ravindraw, R. (2018). <i>Deployment Considerations for Information-Centric Networking
+                 (ICN)</i> (draft-irtf-icnrg-deployment-guidelines-00; Number draft-irtf-icnrg-deployment-guidelines-00). IETF. https://tools.ietf.org/pdf/draft-irtf-icnrg-deployment-guidelines-00.pdf</span></li>
+</ol>
+
+  </div>
+<a class="u-url" href="/blog/computing/2018/02/24/ndn-synopsis.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Content licensed CC-BY 4.0</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+<ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
