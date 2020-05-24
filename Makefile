@@ -1,11 +1,17 @@
 help:
 	cat Makefile
 
+push:
+	rsync -avxz --delete --exclude '*~' _site/ www.cds.caltech.edu:public_html/blog
+
+
 # start (or restart) the services in detached mode
 preview: .FORCE
 	cd _site && live-server --no-css-inject --watch=. --mount=/blog:.
 
 # start (or restart) the services
+# 2020-05-22 <mhucka@caltech.edu> note: this is what actually rebuilds _site,
+# not (as you might think) the "make build" command.
 server: .FORCE
 	docker-compose down --remove-orphans || true;
 	docker-compose up
