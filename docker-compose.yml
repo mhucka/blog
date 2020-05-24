@@ -26,10 +26,6 @@ services:
   #   <<: *fastpages
   #   command: watchmedo shell-command --command /fastpages/action_entrypoint.sh --pattern *.ipynb --recursive --drop
 
-  # 2020-05-22 <mhucka@caltech.edu> I tried adding --livereload to jekyll
-  # but, even though pages were regenerated automatically, my browser did
-  # not refresh changed pages automatically.
-
   jekyll:
     working_dir: /data
     image: hamelsmu/fastpages-jekyll
@@ -38,7 +34,9 @@ services:
       - "4000:4000"
     volumes:
       - .:/data/
+      # 2020-05-22 <mhucka@caltech.edu> I tried adding --livereload to jekyll
+      # but, even though pages were regenerated automatically, my browser did
+      # not refresh changed pages automatically.
     command: >
      bash -c "gem install bundler
      && jekyll serve --incremental --verbose --trace --strict_front_matter"
-
