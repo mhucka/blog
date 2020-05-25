@@ -61,6 +61,8 @@ GEM
       jekyll (>= 3.6, < 5.0)
       octicons (= 9.5.0)
     jekyll-paginate (1.1.0)
+    jekyll-postfiles (3.1.0)
+      jekyll (>= 3.8.6, < 5)
     jekyll-relative-links (0.6.1)
       jekyll (>= 3.3, < 5.0)
     jekyll-remote-theme (0.4.2)
@@ -156,6 +158,7 @@ DEPENDENCIES
   jekyll-gist
   jekyll-octicons
   jekyll-paginate
+  jekyll-postfiles
   jekyll-relative-links
   jekyll-remote-theme
   jekyll-scholar

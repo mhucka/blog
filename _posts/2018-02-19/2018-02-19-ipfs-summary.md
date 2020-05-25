@@ -41,7 +41,7 @@ Exchange of data between peers is accomplished using a custom protocol called Bi
 The combination of DHT and BitSwap provides IPFS with a robust and efficient scheme for storing and distributing blocks of data across a large number of peers.  On top of this infrastructure, IPFS implements a _Merkle DAG_: a directed acyclic graph of objects where the links between objects are the hashes of the content stored in the nodes.  The following is a simple illustration of this concept:
 
 <figure>
-  <img class="no-border width-66" src="/blog/images/merkle.svg">
+  <img class="no-border width-66" src="merkle.svg">
   <!-- The extra <p> is needed to get centering to work on Safari. -->
   <figcaption><p align="center">Illustration of a DAG created between objects identified by hashes.</p></figcaption>
 </figure>

@@ -16,7 +16,7 @@ The fact that most modern applications are not well matched to IP's host-oriente
 NDN changes the focus of network services from delivering packets to a destination (the basic IP approach), to requesting data by name.  Architecturally, NDN puts named data chunks at the "thin waist" of the network protocol stack, replacing host-addressed IP packets.  (See the next figure.)  The name in an NDN packet can refer to anything: a file, a data segment from a movie, a data stream endpoint from an environmental sensor, a command to control something, etc.  Data chunks themselves are signed digitally, with a certification scheme that allows a consumer to verify that the content was produced by the expected source and that the data has not been tampered with.
 
 <figure>
-  <img class="no-shadow width-66" src="/blog/images/ndn-hourglass.svg">
+  <img class="no-shadow width-66" src="./ndn-hourglass.svg">
   <figcaption>No discussion of Internet protocols is complete without the canonical hourglass diagram of the network stack.  (Left) Today's IP-based Internet architecture. (Right) The NDN-based network architecture.  The "thin waist" part of NDN consists of data chunks; this replaces the Internet Protocol packets in the regular IP stack. (Figure based on diagram by Jacobsen et al., 2012.)
 </figcaption>
 </figure>
@@ -30,7 +30,7 @@ NDN communication is initiated when a consumer makes a request for data. In the 
 Interest Packets primarily consist of a name and optional selectors to specify more precisely the data being requested; Data Packets consist of a name, some metadata, digital signature data, and the content requested {% cite Jacobson2012-jc %}.  As discussed further below, names in NDN are typically structured hierarchically.  A Data Packet "satisfies" an Interest if the name in the Interest is a prefix of the Name in the Data Packet; in other words, if the Data is in the subtree implied by the name in the Interest.
 
 <figure>
-  <img class="no-shadow width-66" src="/blog/images/ndn-packets.svg">
+  <img class="no-shadow width-66" src="./ndn-packets.svg">
   <figcaption style="text-align: center">Illustration of packets in NDN.
 </figcaption>
 </figure>
@@ -54,7 +54,7 @@ A design principle in NDN is stateful forwarding, whereby NDN routers keep state
 The following diagram illustrates the basic processes that take place in an NDN router in response to Interest Packets and Data Packets. The top half shows an Interest Packet arriving at a router. If the router finds an entry for the named data item in its CS, it returns the data on the interface through which the Interest Packet arrived. Otherwise, it next checks the PIT to see if something else has already requested the same data. If it finds a match in the PIT, it adds the interest of the new request to the list of requesters in the PIT entry. When a Data Packet matching an Interest Packet eventually arrives in response to the request, it is forwarded to multiple requesters based on the list in the PIT (a process known as interest aggregation). Finally, if no PIT entry is found, the Interest Packet is passed to the FIB, which performs longest-prefix match (LPM) on the name to look for a network interface that can answer the request. The router forwards the Interest Request to the next hop based on the most specific match in the FIB, and also creates a new PIT entry to identify the router interface on which the interest is pending. If no suitable match is found in the FIB, then the Interest Packet is flooded to all the outgoing interfaces or else deleted (depending on the router's policies).
 
 <figure align="center">
-  <img class="no-shadow width-66" src="/blog/images/main-ndn-router-components.svg">
+  <img class="no-shadow width-66" src="./main-ndn-router-components.svg">
   <figcaption>Illustration of the main components of an NDN router. The top half illustrates the actions when an Interest Packet reaches the router; the bottom half represents the actions when a Data Packet arrives.  (Diagram based on figure by Saxena et al., which in turn is based on figures from NDN project reports {% cite Saxena2016-nf Zhang2014-zn %}.)
   </figcaption>
 </figure>

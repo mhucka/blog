@@ -14,7 +14,7 @@ I want to share an approach to easily typing many mathematical symbols using the
 In more detail, here is how to set it up:
 
 <figure class="float-right width-33">
-  <img src="/blog/images/keyboard-maestro-latex-symbols.jpg"/>
+  <img src="keyboard-maestro-latex-symbols.jpg"/>
 </figure>
 
 1. In text expansion program, define a group for the abbreviations.  In KeyboardMaestro (and I am sure in Textpander too), groups of abbreviations can be toggled active/inactive via a keyboard shortcut.  I use the sequence `command-option-control-'` (that's a normal single quote at the end), which is a key sequence that's easy to type and that I don't use for anything else.  The first press of that key combination activates the abbreviations group, and a second press deactivates it. 

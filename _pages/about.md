@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about.html
 ---
 
 I'm a member of the Caltech [Digital Library Development](https://www.library.caltech.edu) group and have been working on ways to improve the preservation of knowledge and scientific data.  My interests include extraction and preservation of knowledge, handwritten text recognition, artificial intelligence, simulation, systems biology, and cognitive science.

@@ -39,4 +39,4 @@ services:
       # not refresh changed pages automatically.
     command: >
      bash -c "gem install bundler
-     && jekyll serve --incremental --verbose --trace --strict_front_matter"
+     && JEKYLL_ENV=production jekyll serve --incremental --verbose --trace --strict_front_matter"

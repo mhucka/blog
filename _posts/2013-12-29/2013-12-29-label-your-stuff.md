@@ -8,7 +8,7 @@ keywords: [life-hacks]
 ---
 
 <figure class="float-right width-25">
-  <img src="/blog/images/stuffbak.jpg">
+  <img src="stuffbak.jpg">
 </figure>
 
 For a number of years, a company called [StuffBak](http://www.stuffbak.com) has been making a system available for helping lost items get returned back to their owners.  The scheme involves a sticker that has a unique identification number together with the StuffBak phone number and web address on it, plus an online registration system. You get a sticker, you register it with StuffBak, you stick it on an item, and if the item is ever lost and someone finds it, hopefully the finder will contact StuffBak, who in turn will contact you. You can offer a reward for the return of the item. It's a great idea, and apparently it does work.
@@ -16,7 +16,7 @@ For a number of years, a company called [StuffBak](http://www.stuffbak.com) has 
 Here I want to describe a simpler do-it-yourself alternative that has already worked for me once, and I think stands as much or more chance of getting expensive stuff back to you. I use a label maker (one of the many [Brother label makers](http://www.brother-usa.com/Ptouch/For_Home/#.UsILx6Ub22k)) to print small plastic-covered labels that say the following: *"If found, please contact mhucka@caltech.edu"*. I put this on the back of my iPhone, my cell phone, the bottom of my laptop, power adapters, laptop video cable adapters, airline power adapter, laser pointer, USB dongles, etc. – anything that's big enough to put a label on. 
 
 <figure class="float-right width-50">
-  <img src="/blog/images/labeled-thing.jpg">
+  <img src="labeled-thing.jpg">
 </figure>
 
 The nice thing about modern label makers is that they can print in various font sizes, so you can make very small labels, medium ones, and really big ones. You can also get different label colors: black letters on white background, black letters on transparent background, white letters on black background, and so on. This lets you tailor the label to the particular device and make the label more attractive and discreet. The plastic-coated labels are waterproof too.
