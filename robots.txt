@@ -1,1 +1,1 @@
-Sitemap: https://mhucka.github.io/blog/sitemap.xml
+Sitemap: https://www.cds.caltech.edu/~mhucka/blog/sitemap.xml

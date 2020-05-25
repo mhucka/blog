@@ -343,7 +343,7 @@ html, body { height: 100%; }
 
 body > .container { height: auto; min-height: 100%; }
 
-body { margin-top: 0; padding-bottom: 0; color: #5a5a5a; -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; -o-hyphens: auto; word-break: break-word; hyphens: auto; background: url("/blog/images/noisy_grid_green.png"); }
+body { margin-top: 0; padding-bottom: 0; color: #5a5a5a; -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; -o-hyphens: auto; word-break: break-word; hyphens: auto; background: url("https://www.cds.caltech.edu/~mhucka/blog/images/noisy_grid_green.png"); }
 
 header.site-header { background-color: #252825; color: white; padding: 0; background: linear-gradiet(#252825, #202020); min-height: 65px; }
 
