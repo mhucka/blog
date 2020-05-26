@@ -414,6 +414,10 @@ header.post-header .page-description { margin-top: 0.25em; margin-bottom: 0.25em
 
 .post-list p.post-meta { float: right; display: inline; color: #5a5a5a; font-style: italic; font-size: 10pt; }
 
+.archive-item .post-meta { color: inherit; text-align: left; margin-left: 4em; }
+
+.archive-item .post-meta-title { text-align: left; }
+
 .keywords { font-size: 0.8em; text-align: center; padding-bottom: 1em; border-bottom: 1px solid #ddd; }
 
 .keywords-link:before { content: "#"; }
@@ -508,6 +512,8 @@ footer { padding-bottom: 0; }
 .site-footer { padding-bottom: 10px; }
 
 footer .wrapper { font-family: 'Cabin', sans-serif; font-size: 9pt; background-color: inherit; border: none; box-shadow: none; }
+
+.footer-col-wrapper { font-size: 9pt; }
 
 footer .wrapper a { color: black; text-decoration: underline; }
 
