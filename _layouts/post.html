@@ -37,7 +37,7 @@ layout: default
     {% if page.keywords.size > 0 and site.show_tags %}
       <p class="keywords">
       {% for keyword in page.keywords  %}
-        <a class="keywords-link" href="/{{site.baseurl}}/categories/#{{keyword|slugify}}">{{keyword}}</a>
+        <a class="keywords-link" href="{{site.baseurl}}/categories/#{{keyword|slugify}}">{{keyword}}</a>
         {% unless forloop.last %}&nbsp;{% endunless %}
       {% endfor %}
       </p>
