@@ -63,8 +63,10 @@ google_analytics:
 
 exclude:
   - docker-compose.yml
-  - action.yml
+  - docker-compose-prod.yml
   - Makefile
+  - .gitignore
+  - "*.txt"
   - "**/.#*"
 
 # this setting allows you to keep pages organized in the _pages folder
