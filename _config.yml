@@ -34,7 +34,7 @@ url: "https://www.cds.caltech.edu" # the base hostname & protocol for your site,
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "~mhucka/blog" # the subpath of your site, e.g. "/blog".
+baseurl: "/~mhucka/blog" # the subpath of your site, e.g. "/blog".
 
 # 2020-05-24 <mhucka@caltech.edu> 
 # I don't like the default deeply nested paths.
