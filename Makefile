@@ -16,6 +16,11 @@ server: .FORCE
 	docker-compose down --remove-orphans || true;
 	docker-compose up
 
+# 2020-05-26 <mhucka@caltech.edu> create files targetting CDS deployment.
+prod: .FORCE
+	docker-compose down --remove-orphans || true;
+	docker-compose -f docker-compose-prod.yml up
+
 server-detached: .FORCE
 	docker-compose down || true;
 	docker-compose up -d
