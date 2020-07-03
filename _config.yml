@@ -69,6 +69,7 @@ exclude:
   - .gitignore
   - "*.txt"
   - "**/.#*"
+  - notes.txt
 
 # this setting allows you to keep pages organized in the _pages folder
 include:
