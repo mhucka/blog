@@ -1,9 +1,18 @@
-<h3>
+<h3 class="post-title">
     <a class="post-link" href="{{ post.url | relative_url }}">
     {{ post.title | escape }}
     </a>
 </h3>
-{%- if site.show_description and post.description  -%}
-<p class="post-meta-description">{{ post.description }}</p>
-{%- endif -%}
-<p class="post-meta">{{ post.date | date: date_format }}</p>
+<div class="post-meta">
+  <p class="post-meta-date">{{ post.date | date: date_format }}</p>
+  {%- if site.show_description and post.description  -%}
+  <p class="post-meta-description">{{ post.description }}</p>
+  <span class="post-meta-keywords-list-separator"></span>
+  <div class="post-meta-keywords-list">
+    {% for keyword in post.keywords  %}
+    <span class="post-keyword" keyword="#{{keyword}}">#{{keyword}}</span>
+    {% unless forloop.last %}&nbsp;{% endunless %}
+    {% endfor %}
+  </div>
+  {%- endif -%}
+</div>

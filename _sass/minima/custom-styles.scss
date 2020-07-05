@@ -111,6 +111,11 @@ header.site-header {
     padding-top: 0;
 }
 
+header.site-header {
+    min-height: 5.75em;
+    max-height: 5.75em;
+}
+
 header.site-header .wrapper {
     max-width: 92%;
     font-family: 'Cabin', sans-serif;
@@ -129,6 +134,36 @@ header.site-header a.page-link {
     font-weight: 500;
     letter-spacing: 0.25pt;
     text-shadow: 1px 1px 3px #444;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.25em;
+    line-height: 1.25em;
+}
+
+header.site-header .site-subtitle {
+    display: block;
+    clear: both;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+    margin-top: -1em;
+    margin-bottom: 1em;
+    line-height: 1.25em;
+}
+
+header.site-header a,
+header.site-header a:visited {
+    color: white;
+}
+
+nav.site-nav {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    margin-top: 1.5em;
+    padding: 0;
+    line-height: 1em;
 }
 
 main, article {
@@ -191,8 +226,15 @@ article h3:before {
     margin-bottom: 1em;
 }
 
-.home p.post-meta-description {
-    margin-bottom: 0.5em;
+div.home {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25em;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    padding: 1.5em 2em 2em 2em;
+    -webkit-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
 }
 
 .post {
@@ -207,8 +249,16 @@ article h3:before {
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15)
 }
 
+.post-title {
+    display: inline-block;
+}
+
 .post-list {
     padding-bottom: 1em;
+}
+
+.post-keyword {
+    font-size: 10pt;
 }
 
 .post-list h1,
@@ -229,6 +279,7 @@ h1 {
 
 .post-list h3 .post-link {
     font-size: 0.85em;
+    letter-spacing: normal;
 }
 
 .post-content h1,
@@ -284,13 +335,34 @@ header.post-header .page-description {
 }
 
 .post-meta {
-    color: white;
-    text-align: center;
     margin-top: 0.25em;
+}
+
+.post-meta-date {
+    float: right;
+    text-align: right;
+    margin-top: -1.75em;
+    margin-bottom: 0.5em;
 }
 
 .post-meta time.dt-published {
     color: #5a5a5a;
+}
+
+.post-meta-description {
+    display: inline;
+    font-size: normal;
+    margin-right: 0.5em;
+}
+
+.post-meta-keywords-list {
+    display: inline;
+    margin-left: 0.5em;
+}
+
+.post-meta-keywords-list-separator:before {
+    content: "▫︎▫︎▫︎";
+    color: #bbb;
 }
 
 .post-list li p {
@@ -302,7 +374,6 @@ header.post-header .page-description {
     display: inline;
     color: #5a5a5a;
     font-style: italic;
-    font-size: 10pt;
 }
 
 .archive-item .post-meta {
@@ -609,7 +680,6 @@ footer .footer-col-wrapper {
     margin-left: auto;
     margin-right: auto;
 }
-
 footer .feed-subscribe {
     text-align: right;
     margin-right: 2em;
@@ -636,48 +706,48 @@ footer .feed-subscribe .svg-icon.orange {
 /* The first in each group is the main category, which fastpages
 (or maybe jekyll?) puts in a top-level directory. */
 
-a[href*="categories/#sysbio"]                   { color: #0099ff; text-decoration: none; }
-a[href*="categories/#sysbio"]:visited           { color: #0099ff; text-decoration: none; }
-a[href*="categories/#sbml"]                     { color: #0079ab; text-decoration: none; }
-a[href*="categories/#sbml"]:visited             { color: #0079ab; text-decoration: none; }
+a[href*="#sysbio"], span[keyword="#sysbio"]                     { color: #0099ff; text-decoration: none; }
+a[href*="#sysbio"]:visited                                      { color: #0099ff; text-decoration: none; }
+a[href*="#sbml"], span[keyword="#sbml"]                         { color: #0079ab; text-decoration: none; }
+a[href*="#sbml"]:visited                                        { color: #0079ab; text-decoration: none; }
 
-a[href*="categories/#machine-learning"]         { color: #f00000; text-decoration: none; }
-a[href*="categories/#machine-learning"]:visited { color: #f00000; text-decoration: none; }
-a[href*="categories/#python"]                   { color: #ff4d4d; text-decoration: none; }
-a[href*="categories/#python"]:visited           { color: #ff4d4d; text-decoration: none; }
-a[href*="categories/#HTR"]                      { color: #ff1a1a; text-decoration: none; }
-a[href*="categories/#HTR"]:visited              { color: #ff1a1a; text-decoration: none; }
-a[href*="categories/#software"]                 { color: #d02090; text-decoration: none; }
-a[href*="categories/#software"]:visited         { color: #d02090; text-decoration: none; }
-a[href*="categories/#AI"]                       { color: #d00000; text-decoration: none; }
-a[href*="categories/#AI"]:visited               { color: #d00000; text-decoration: none; }
-a[href*="categories/#networking"]               { color: #cc3300; text-decoration: none; }
-a[href*="categories/#networking"]:visited       { color: #cc3300; text-decoration: none; }
-a[href*="categories/#git"]                      { color: #ff8566; text-decoration: none; }
-a[href*="categories/#git"]:visited              { color: #ff8566; text-decoration: none; }
-a[href*="categories/#emacs"]                    { color: #cF7010; text-decoration: none; }
-a[href*="categories/#emacs"]:visited            { color: #cF7010; text-decoration: none; }
-a[href*="categories/#latex"]                    { color: #dfc9cc; text-decoration: none; }
-a[href*="categories/#latex"]:visited            { color: #dfc9cc; text-decoration: none; }
-a[href*="categories/#macos"]                    { color: #ffb3b3; text-decoration: none; }
-a[href*="categories/#macos"]:visited            { color: #ffb3b3; text-decoration: none; }
+a[href*="#machine-learning"], span[keyword="#machine-learning"] { color: #f00000; text-decoration: none; }
+a[href*="#machine-learning"]:visited                            { color: #f00000; text-decoration: none; }
+a[href*="#python"], span[keyword="#python"]                     { color: #ff4d4d; text-decoration: none; }
+a[href*="#python"]:visited                                      { color: #ff4d4d; text-decoration: none; }
+a[href*="#HTR"], span[keyword="#HTR"]                           { color: #ff1a1a; text-decoration: none; }
+a[href*="#HTR"]:visited                                         { color: #ff1a1a; text-decoration: none; }
+a[href*="#software"], span[keyword="#software"]                 { color: #d02090; text-decoration: none; }
+a[href*="#software"]:visited                                    { color: #d02090; text-decoration: none; }
+a[href*="#AI"], span[keyword="#AI"]                             { color: #d00000; text-decoration: none; }
+a[href*="#AI"]:visited                                          { color: #d00000; text-decoration: none; }
+a[href*="#networking"], span[keyword="#networking"]             { color: #cc3300; text-decoration: none; }
+a[href*="#networking"]:visited                                  { color: #cc3300; text-decoration: none; }
+a[href*="#git"], span[keyword="#git"]                           { color: #ff8566; text-decoration: none; }
+a[href*="#git"]:visited                                         { color: #ff8566; text-decoration: none; }
+a[href*="#emacs"], span[keyword="#emacs"]                       { color: #cF7010; text-decoration: none; }
+a[href*="#emacs"]:visited                                       { color: #cF7010; text-decoration: none; }
+a[href*="#latex"], span[keyword="#latex"]                       { color: #dfc9cc; text-decoration: none; }
+a[href*="#latex"]:visited                                       { color: #dfc9cc; text-decoration: none; }
+a[href*="#macos"], span[keyword="#macos"]                       { color: #ffb3b3; text-decoration: none; }
+a[href*="#macos"]:visited                                       { color: #ffb3b3; text-decoration: none; }
 
-a[href*="categories/#hardware"]                 { color: #e900f0; text-decoration: none; }
-a[href*="categories/#hardware"]:visited         { color: #e900f0; text-decoration: none; }
-a[href*="categories/#mac"]                      { color: #bf00cf; text-decoration: none; }
-a[href*="categories/#mac"]:visited              { color: #bf00cf; text-decoration: none; }
-a[href*="categories/#ipad"]                     { color: #df33cc; text-decoration: none; }
-a[href*="categories/#ipad"]:visited             { color: #df33cc; text-decoration: none; }
+a[href*="#hardware"], span[keyword="#hardware"]                 { color: #e900f0; text-decoration: none; }
+a[href*="#hardware"]:visited                                    { color: #e900f0; text-decoration: none; }
+a[href*="#mac"], span[keyword="#mac"]                           { color: #bf00cf; text-decoration: none; }
+a[href*="#mac"]:visited                                         { color: #bf00cf; text-decoration: none; }
+a[href*="#ipad"], span[keyword="#ipad"]                         { color: #df33cc; text-decoration: none; }
+a[href*="#ipad"]:visited                                        { color: #df33cc; text-decoration: none; }
 
-a[href*="categories/#life-hacks"]               { color: #aaaa55; text-decoration: none; }
-a[href*="categories/#life-hacks"]:visited       { color: #aaaa55; text-decoration: none; }
-a[href*="categories/#efficiency-hacks"]         { color: #ffad33; text-decoration: none; }
-a[href*="categories/#efficiency-hacks"]:visited { color: #ffad33; text-decoration: none; }
-a[href*="categories/#research"]                 { color: #9cdc00; text-decoration: none; }
-a[href*="categories/#research"]:visited         { color: #9cdc00; text-decoration: none; }
+a[href*="#life-hacks"], span[keyword="#life-hacks"]             { color: #aaaa55; text-decoration: none; }
+a[href*="#life-hacks"]:visited                                  { color: #aaaa55; text-decoration: none; }
+a[href*="#efficiency-hacks"], span[keyword="#efficiency-hacks"] { color: #ffad33; text-decoration: none; }
+a[href*="#efficiency-hacks"]:visited                            { color: #ffad33; text-decoration: none; }
+a[href*="#research"], span[keyword="#research"]                 { color: #9cdc00; text-decoration: none; }
+a[href*="#research"]:visited                                    { color: #9cdc00; text-decoration: none; }
 
-a[href*="categories/#photography"]              { color: #80a000; text-decoration: none; }
-a[href*="categories/#photography"]:visited      { color: #80a000; text-decoration: none; }
+a[href*="#photography"], span[keyword="#photography"]           { color: #80a000; text-decoration: none; }
+a[href*="#photography"]:visited                                 { color: #80a000; text-decoration: none; }
 
 
 /* other colors:
