@@ -406,7 +406,7 @@ h1 { font-size: 1.75em; color: black; }
 
 .page-content { padding-top: 2em; }
 
-article .post-header h1, main.page-content h1 { text-align: center; font-family: 'Cabin', sans-serif; font-weight: bold; font-size: 2rem; }
+article .post-header h1, main.page-content h1 { display: block; text-align: center; font-family: 'Cabin', sans-serif; font-weight: bold; font-size: 2rem; margin-left: auto; margin-right: auto; }
 
 article .post-content h2, main.page-content h2 { font-family: 'Cabin', sans-serif; font-weight: 700; font-size: 1.75em; color: black; }
 
@@ -414,11 +414,15 @@ article .post-content h3, main.page-content h3 { font-family: 'Cabin', sans-seri
 
 article .post-content h4, main.page-content h4 { font-family: 'Cabin', sans-serif; font-weight: 700; font-size: 1.5em; font-style: oblique; color: black; }
 
-header.post-header .page-description { margin-top: 0.25em; margin-bottom: 0.25em; text-align: center; }
+header.post-header .page-description { display: none; }
 
 .post-meta { margin-top: 0.25em; }
 
 .post-meta-date { float: right; text-align: right; margin-top: -1.75em; margin-bottom: 0.5em; }
+
+article h1.post-title { text-align: center; }
+
+article .post-meta-title { text-align: center; }
 
 .post-meta time.dt-published { color: #5a5a5a; }
 
@@ -571,9 +575,9 @@ a[href*="#HTR"], span[keyword="#HTR"] { color: #ff1a1a; text-decoration: none; }
 
 a[href*="#HTR"]:visited { color: #ff1a1a; text-decoration: none; }
 
-a[href*="#software"], span[keyword="#software"] { color: #d02090; text-decoration: none; }
+a[href*="#software"], span[keyword="#software"] { color: #e02080; text-decoration: none; }
 
-a[href*="#software"]:visited { color: #d02090; text-decoration: none; }
+a[href*="#software"]:visited { color: #e02080; text-decoration: none; }
 
 a[href*="#AI"], span[keyword="#AI"] { color: #d00000; text-decoration: none; }
 

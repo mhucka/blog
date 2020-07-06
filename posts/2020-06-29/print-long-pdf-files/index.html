@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to print long PDF files on macOS | So much to know, so little brain</title>
+<meta name="generator" content="Jekyll v4.0.0">
+<meta property="og:title" content="How to print long PDF files on macOS">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="How I print long PDFs of saved web pages">
+<meta property="og:description" content="How I print long PDFs of saved web pages">
+<link rel="canonical" href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/">
+<meta property="og:url" content="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/">
+<meta property="og:site_name" content="So much to know, so little brain">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-06-29T00:00:00-05:00">
+<script type="application/ld+json">
+{"description":"How I print long PDFs of saved web pages","@type":"BlogPosting","headline":"How to print long PDF files on macOS","dateModified":"2020-06-29T00:00:00-05:00","datePublished":"2020-06-29T00:00:00-05:00","url":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/~mhucka/blog/assets/css/style.css">
+<link type="application/atom+xml" rel="alternate" href="https://www.cds.caltech.edu/~mhucka/blog/feed.xml" title="So much to know, so little brain">
+<link rel="shortcut icon" type="image/x-icon" href="/~mhucka/blog/images/favicon.ico">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to print long PDF files on macOS | So much to know, so little brain</title>
+<meta name="generator" content="Jekyll v4.0.0">
+<meta property="og:title" content="How to print long PDF files on macOS">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="How I print long PDFs of saved web pages">
+<meta property="og:description" content="How I print long PDFs of saved web pages">
+<link rel="canonical" href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/">
+<meta property="og:url" content="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/">
+<meta property="og:site_name" content="So much to know, so little brain">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-06-29T00:00:00-05:00">
+<script type="application/ld+json">
+{"description":"How I print long PDFs of saved web pages","@type":"BlogPosting","headline":"How to print long PDF files on macOS","dateModified":"2020-06-29T00:00:00-05:00","datePublished":"2020-06-29T00:00:00-05:00","url":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link type="application/atom+xml" rel="alternate" href="https://www.cds.caltech.edu/~mhucka/blog/feed.xml" title="So much to know, so little brain">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body>
+<header class="site-header">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/~mhucka/blog/">So much to know, so little brain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+<a class="page-link" href="/~mhucka/blog/about.html">About</a><a class="page-link" href="/~mhucka/blog/search/">Search</a><a class="page-link" href="/~mhucka/blog/categories/">Tags</a>
+</div>
+      </nav><span class="site-subtitle">Welcome to my personal blog, where I share discoveries, experiences, and reflections. – <a href="/about.html">Mike Hucka, Ph.D.</a></span>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to print long PDF files on macOS</h1>
+<p class="page-description">How I print long PDFs of saved web pages</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-29T00:00:00-05:00" itemprop="datePublished">
+        Jun 29, 2020
+      </time>
+      <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="keywords">
+      
+        <a class="keywords-link" href="/~mhucka/blog/categories/#software">software</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I like to save web pages as single-page PDF files.  The result provides a snapshot of a page exactly as it appears when I see it in my browser, but without the page-breaks that come from using a typical print-to-PDF approach.  I personally find PDFs to be more convenient than something like <a href="https://en.wikipedia.org/wiki/Web_ARChive">WARC</a> when it comes to storing in <a href="https://www.devontechnologies.com/apps/devonthink">DEVONthink</a> or <a href="https://www.zotero.org">Zotero</a>, as well as for purposes of annotation, search, and general file management.</p>
+
+<p>Viewing long PDFs is no problem on electronic devices such as computers and tablet, but every once in a while, I want to print a page to physical paper, or more rarely, convert the original unpaginated single-page PDF to a paginated PDF file, so that it can be included in another document.  This leads to a problem because there is no facility in the default system on macOS to tile a printout across multiple pages (also known as “posterizing” and “tile cropping”).</p>
+
+<p>After searching and experimenting with multiple approaches, I have found two that work.</p>
+
+<h2 id="mindcad-tiler">Mindcad Tiler</h2>
+
+<p><a href="http://mindcad.com/tiler.html">Mindcad Tiler</a> is a low-cost ($5 at the time of this writing) commercial application available through the Apple App Store.  It does one thing: tile files for printing.  Here is how I use it to print a long single-page PDF file.</p>
+
+<ol>
+  <li>Start Mindcad Tiler and open the PDf file.</li>
+  <li>Click on Page Setup and select the destination printer.</li>
+  <li>Click on the “Actual size” button in the toolbar. This will rescale the preview and show you outlines of print pages.  (Those are the thin gray grid lines in the screenshot below.) <figure><img width="80%" style="text-align: center" src="tiler-after-actual-size.png"></figure>
+</li>
+  <li>Use the <strong>Del Column</strong> button in the toolbar to get it to use only one physical page horizontally.  It will span multiple pages but only in the vertical direction (in this example, 3 pages): <figure><img width="80%" style="text-align: center" src="tiler-after-del-column.png"></figure>
+</li>
+  <li>If necessary, use the <strong>Del Row</strong> button to get rid of blank pages at the beginning and the end.  (Whether you need to do this depends on the particular file you’re working with and how it happens to tile.)</li>
+</ol>
+
+<p>Now you can print to paper, or (since Tiler uses the macOS print dialog) save the result to another (this time, paginated) PDF file in <a href="https://support.apple.com/guide/mac-help/save-a-document-as-a-pdf-on-mac-mchlp1531/mac">the normal way</a>.</p>
+
+<h2 id="acrobat-reader-dc-free">Acrobat Reader DC (free)</h2>
+
+<p>The free version of Acrobat Reader can also do posterizing or tile cropping.  To use it to do that, from the print dialog, first select “Poster”:</p>
+
+<figure><img width="80%" style="text-align: center" src="acrobat-reader-poster-printing.png"></figure>
+
+<p>Next, you have to manually play with the “Tile Scale” value until you get a single vertical column of pages.  I usually start with the value “50%” and then adjust it depending on what happens with the particular file I’m working with.</p>
+
+<p>Now, the tricky thing with Acrobat is how to print to another PDF if you want to save the result as a paginated PDF file.  Adobe frustratingly disables the normal system print dialog (at least on macOS), and it doesn’t provide a save-to-PDF function itself.  So, what do you do?</p>
+
+<p>The easiest solution I have found is to install <a href="https://pdfwriterformac.sourceforge.io/">PDFwriter</a> (note: <em>not</em> the commercial Windows application of the same name).  It’s a free, open-source application that acts as a print destination in the macOS print dialog.  Once installed, you can print to it from Acrobat, and PDFwriter will save the output as a PDF file in its default output location (which is configurable from within PDFwriter itself).</p>
+
+<h2 id="other-options">Other options</h2>
+
+<p>There exist some other options for tiling PDF files across multiple pages.  Here are some that I’ve seen mentioned repeatedly in discussions, but I have not tried them myself:</p>
+
+<ul>
+  <li><a href="https://gitlab.com/pdftools/pdfposter">pdfposter</a></li>
+  <li><a href="https://github.com/oxplot/pdftilecut">pdftilecut</a></li>
+  <li>
+<a href="http://www.imagemagick.org/Usage/crop/#crop_tile">ImageMagick</a> has a crop tiling capability</li>
+</ul>
+
+
+  </div>
+<a class="u-url" href="/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/~mhucka/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/~mhucka/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/~mhucka/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Content licensed CC-BY 4.0</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+<ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
