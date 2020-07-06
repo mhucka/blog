@@ -1,6 +1,6 @@
 ---
 title: Label your stuff—it just might come back to you
-description: Label your electronics to help people return them to you
+description: Label your gear to help people return them to you
 toc: false
 layout: post
 categories: [general]
