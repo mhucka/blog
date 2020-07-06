@@ -10,7 +10,7 @@
   <span class="post-meta-keywords-list-separator"></span>
   <div class="post-meta-keywords-list">
     {% for keyword in post.keywords  %}
-    <span class="post-keyword" keyword="#{{keyword}}">#{{keyword}}</span>
+    <a class="keywords-link" href="{{site.baseurl}}/categories/#{{keyword|slugify}}">{{keyword}}</a>
     {% unless forloop.last %}&nbsp;{% endunless %}
     {% endfor %}
   </div>
