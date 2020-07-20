@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://www.cds.caltech.edu/~mhucka/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.cds.caltech.edu/~mhucka/blog/" rel="alternate" type="text/html" /><updated>2020-07-05T20:12:12-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/feed.xml</id><title type="html">So much to know, so little brain</title><subtitle>Content licensed CC-BY 4.0</subtitle><entry><title type="html">How to print long PDF files on macOS</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/" rel="alternate" type="text/html" title="How to print long PDF files on macOS" /><published>2020-06-29T00:00:00-05:00</published><updated>2020-06-29T00:00:00-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/">&lt;p&gt;I like to save web pages as single-page PDF files.  The result provides a snapshot of a page exactly as it appears when I see it in my browser, but without the page-breaks that come from using a typical print-to-PDF approach.  I personally find PDFs to be more convenient than something like &lt;a href=&quot;https://en.wikipedia.org/wiki/Web_ARChive&quot;&gt;WARC&lt;/a&gt; when it comes to storing in &lt;a href=&quot;https://www.devontechnologies.com/apps/devonthink&quot;&gt;DEVONthink&lt;/a&gt; or &lt;a href=&quot;https://www.zotero.org&quot;&gt;Zotero&lt;/a&gt;, as well as for purposes of annotation, search, and general file management.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://www.cds.caltech.edu/~mhucka/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.cds.caltech.edu/~mhucka/blog/" rel="alternate" type="text/html" /><updated>2020-07-20T16:32:10-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/feed.xml</id><title type="html">So much to know, so little brain</title><subtitle>Content licensed CC-BY 4.0</subtitle><entry><title type="html">The easy way to rename “master” to “main” in git and GitHub</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-07-19/renaming-your-master-branch-in-git/" rel="alternate" type="text/html" title="The easy way to rename &quot;master&quot; to &quot;main&quot; in git and GitHub" /><published>2020-07-19T00:00:00-05:00</published><updated>2020-07-19T00:00:00-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2020-07-19/renaming-your-master-branch-in-git</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-07-19/renaming-your-master-branch-in-git/">&lt;p&gt;The Caltech Library software development group is in the process of updating as many of our git repositories as possible in order stop using the name &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; for the primary branch.  We settled on the name &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; as the replacement. It is not yet clear every one of our GitHub repositories can be so changed, but many can. Having decide to do it, the next natural question is, how does one make the change?&lt;/p&gt;
+
+&lt;p&gt;After Googling for solutions, many of which go to old Stack Overflow questions with many varied answers, and reading them, and trying to understand them (made difficult by the &lt;a href=&quot;https://news.ycombinator.com/item?id=12622414&quot;&gt;UX horror that is git&lt;/a&gt;), I settled on the following procedure.  It’s based in large part on &lt;a href=&quot;https://gist.github.com/ccopsey/9866a0bcb0b39ade04fe#gistcomment-3350164&quot;&gt;a GitHub gist&lt;/a&gt; written by GitHub user &lt;em&gt;Comevius&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Change the name of the branch in your local git repository:
+    &lt;pre&gt;&lt;code class=&quot;language-language-bash&quot;&gt; git branch -m master main
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Push the new branch to the origin (presumed here to be on GitHub) and simultaneously set your local copy to track &lt;code class=&quot;highlighter-rouge&quot;&gt;origin/main&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;origin/master&lt;/code&gt; with the following one-line command:
+    &lt;pre&gt;&lt;code class=&quot;language-language-bash&quot;&gt; git push -u origin main
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Go to your repo on GitHub, click on the &lt;em&gt;Settings&lt;/em&gt; tab across the top, then click on &lt;em&gt;Branches&lt;/em&gt; in the left-hand list of items:
+    &lt;figure&gt;&lt;img width=&quot;25%&quot; src=&quot;settings-branch.png&quot; /&gt;&lt;/figure&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In the &lt;em&gt;Branches&lt;/em&gt; panel, change the default branch to be &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt;:
+    &lt;figure&gt;&lt;img width=&quot;25%&quot; src=&quot;branch-change-default.png&quot; /&gt;&lt;/figure&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now go back to your local repository copy, and type one final command to delete &lt;code class=&quot;highlighter-rouge&quot;&gt;origin/master&lt;/code&gt;:
+    &lt;pre&gt;&lt;code class=&quot;language-language-bash&quot;&gt; git push origin :master
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">The Caltech Library software development group is in the process of updating as many of our git repositories as possible in order stop using the name master for the primary branch. We settled on the name main as the replacement. It is not yet clear every one of our GitHub repositories can be so changed, but many can. Having decide to do it, the next natural question is, how does one make the change?</summary></entry><entry><title type="html">How to print long PDF files on macOS</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/" rel="alternate" type="text/html" title="How to print long PDF files on macOS" /><published>2020-06-29T00:00:00-05:00</published><updated>2020-06-29T00:00:00-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-06-29/print-long-pdf-files/">&lt;p&gt;I like to save web pages as single-page PDF files.  The result provides a snapshot of a page exactly as it appears when I see it in my browser, but without the page-breaks that come from using a typical print-to-PDF approach.  I personally find PDFs to be more convenient than something like &lt;a href=&quot;https://en.wikipedia.org/wiki/Web_ARChive&quot;&gt;WARC&lt;/a&gt; when it comes to storing in &lt;a href=&quot;https://www.devontechnologies.com/apps/devonthink&quot;&gt;DEVONthink&lt;/a&gt; or &lt;a href=&quot;https://www.zotero.org&quot;&gt;Zotero&lt;/a&gt;, as well as for purposes of annotation, search, and general file management.&lt;/p&gt;
 
 &lt;p&gt;Viewing long PDFs is no problem on electronic devices such as computers and tablet, but every once in a while, I want to print a page to physical paper, or more rarely, convert the original unpaginated single-page PDF to a paginated PDF file, so that it can be included in another document.  This leads to a problem because there is no facility in the default system on macOS to tile a printout across multiple pages (also known as “posterizing” and “tile cropping”).&lt;/p&gt;
 
@@ -38,7 +61,198 @@
   &lt;li&gt;&lt;a href=&quot;https://gitlab.com/pdftools/pdfposter&quot;&gt;pdfposter&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/oxplot/pdftilecut&quot;&gt;pdftilecut&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.imagemagick.org/Usage/crop/#crop_tile&quot;&gt;ImageMagick&lt;/a&gt; has a crop tiling capability&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">I like to save web pages as single-page PDF files. The result provides a snapshot of a page exactly as it appears when I see it in my browser, but without the page-breaks that come from using a typical print-to-PDF approach. I personally find PDFs to be more convenient than something like WARC when it comes to storing in DEVONthink or Zotero, as well as for purposes of annotation, search, and general file management.</summary></entry><entry><title type="html">A synopsis of Named Data Networking (NDN)</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2018-02-24/ndn-synopsis/" rel="alternate" type="text/html" title="A synopsis of Named Data Networking (NDN)" /><published>2018-02-24T00:00:00-06:00</published><updated>2018-02-24T00:00:00-06:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2018-02-24/ndn-synopsis</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2018-02-24/ndn-synopsis/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">I like to save web pages as single-page PDF files. The result provides a snapshot of a page exactly as it appears when I see it in my browser, but without the page-breaks that come from using a typical print-to-PDF approach. I personally find PDFs to be more convenient than something like WARC when it comes to storing in DEVONthink or Zotero, as well as for purposes of annotation, search, and general file management.</summary></entry><entry><title type="html">Corsproxy – a simple CORS proxy server</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/" rel="alternate" type="text/html" title="Corsproxy – a simple CORS proxy server" /><published>2020-05-11T00:00:00-05:00</published><updated>2020-05-11T00:00:00-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/">&lt;p&gt;The development of web-based applications, particularly single-page applications written using JavaScript, can be stymied by problems involving &lt;a href=&quot;https://en.wikipedia.org/wiki/Cross-origin_resource_sharing&quot;&gt;CORS&lt;/a&gt; security measures enforced by web browsers.  One problem happens when a network server providing a remote API service does not support CORS: if the nature of the network API requires nontrivial types of operations (e.g., HTTP POST requests that contain data payloads), the web browser running the single-page application will enforce CORS requirements, and the API requests will fail when the server does not respond correctly.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;25%&quot; style=&quot;float: right&quot; src=&quot;corsproxy-logo.svg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A simple solution to this problem is to insert an intermediate proxy server between the web application and the network service.  An example of such a proxy server is &lt;a href=&quot;https://cors-anywhere.herokuapp.com/&quot;&gt;CORS Anywhere&lt;/a&gt;, an open-source proxy server that runs in NodeJS.  CORS Anywhere works well, and only needs some additional elements to make it suitable for running as a standard system service on a Linux server.&lt;/p&gt;
+
+&lt;p&gt;For this reason, I wrote &lt;a href=&quot;https://github.com/caltechlibrary/corsproxy&quot;&gt;corsproxy&lt;/a&gt;, a simple CORS proxy server suitable to install as a system service on Linux servers.  Corsproxy also tries to simplify some of the configuration steps in using CORS Anywhere.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation-on-centosrhel-flavored-linux&quot;&gt;Installation on CentOS/RHEL-flavored Linux&lt;/h2&gt;
+
+&lt;p&gt;Here are the steps I took to install and set up this service on a CentOS 7.7 system.  (Note: all of the following commands are performed as root.)&lt;/p&gt;
+
+&lt;h3 id=&quot;prepare-your-system-and-install-the-software&quot;&gt;Prepare your system and install the software&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create a user account for the service on the host system.  (E.g., &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt;.) On a CentOS 7 system, this can be done using the following command; note the use of the &lt;code class=&quot;highlighter-rouge&quot;&gt;-k&lt;/code&gt; argument to prevent copying default skeleton files to the home directory, because we will fill the home directory with something else in the next step.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; useradd &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CORS proxy server&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-k&lt;/span&gt; /dev/null corsproxy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Clone this git repository into the account directory on the host system:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/corsproxy
+ git clone &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt; https://github.com/caltechlibrary/corsproxy.git &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the NodeJS dependencies in the &lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; subdirectory:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/corsproxy/server
+ npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;cors-anywhere
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change the user and group of everything to match the proxy user’s group:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/corsproxy
+ &lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; corsproxy:corsproxy &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create a directory in &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/run&lt;/code&gt; where the proxy user can write the process id file:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /var/run/corsproxy
+ &lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;corsproxy:corsproxy /var/run/corsproxy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the &lt;code class=&quot;highlighter-rouge&quot;&gt;rsyslogd&lt;/code&gt; configuration file, and tell &lt;code class=&quot;highlighter-rouge&quot;&gt;rsyslogd&lt;/code&gt; to load it:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/corsproxy/admin/system
+ &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;corsproxy-rsyslog.conf /etc/rsyslog.d/corsproxy.conf
+ &lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; /var/log/corsproxy
+ &lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;corsproxy:corsproxy /var/log/corsproxy
+ systemctl restart rsyslog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the &lt;code class=&quot;highlighter-rouge&quot;&gt;systemd&lt;/code&gt; script and tell &lt;code class=&quot;highlighter-rouge&quot;&gt;systemd&lt;/code&gt; about it:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;corsproxy.service /etc/systemd/system/
+ systemctl daemon-reload
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the &lt;code class=&quot;highlighter-rouge&quot;&gt;logrotate&lt;/code&gt; script:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;corsproxy-logrotate.txt /etc/logrotate.d/corsproxy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;configure-the-proxy&quot;&gt;Configure the proxy&lt;/h3&gt;
+
+&lt;p&gt;Configure the CORS proxy server by copying the template configuration file to create &lt;code class=&quot;highlighter-rouge&quot;&gt;config.sh&lt;/code&gt; and then editing this &lt;code class=&quot;highlighter-rouge&quot;&gt;config.sh&lt;/code&gt; file to set the variable values as needed for your installation.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /home/corsproxy/admin
+   &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;config.sh.template config.sh
+   &lt;span class=&quot;c&quot;&gt;# edit config.sh&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The value of the variables &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;REQUIRED_HEADER&lt;/code&gt; are the most important to set in order to help prevent abuse of the service.  Information about them can be found in the &lt;code class=&quot;highlighter-rouge&quot;&gt;config.sh.template&lt;/code&gt; file.  Note: the way that the restrictions on origins works is currently limited, in that hosts are restricted based on the value of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin&lt;/code&gt; header in the HTTP request, &lt;em&gt;not the actual host or IP address&lt;/em&gt; of source of the request.  To block hosts by IP address ranges, configure your system’s firewall appropriately (see next steps).  See the discussion later below for more on this topic.&lt;/p&gt;
+
+&lt;h3 id=&quot;configure-your-firewall&quot;&gt;Configure your firewall&lt;/h3&gt;
+
+&lt;p&gt;Check your firewall settings and make sure they permit connections to the port you configured.  Specific instructions for doing this cannot be given here, as they depend very much on your firewall scheme.  Also make sure to &lt;em&gt;save&lt;/em&gt; this new configuration (the &lt;em&gt;how&lt;/em&gt; again depends on your particular system), so that the new firewall configuration persists across reboots of your computer.&lt;/p&gt;
+
+&lt;h3 id=&quot;start-the-service&quot;&gt;Start the service&lt;/h3&gt;
+
+&lt;p&gt;Now, at this point, everything is in place, and what remains is to tell the operating system to install the new service and start it up.  Before going further, it may be helpful to open another window and do a &lt;code class=&quot;highlighter-rouge&quot;&gt;tail -f /var/log/messages&lt;/code&gt; to keep an eye for system messages.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enable the new service:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;corsproxy.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start the service:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; systemctl start corsproxy.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Check the status:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; systemctl status corsproxy.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If all goes well, a &lt;code class=&quot;highlighter-rouge&quot;&gt;node&lt;/code&gt; process should be running under the user credentials of &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt;.  Log output should also appear in a new log file located at &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/corsproxy/corsproxy.log&lt;/code&gt;, but it will also get printed to &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/messages&lt;/code&gt;.  If log output is &lt;em&gt;only&lt;/em&gt; printed in &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/messages&lt;/code&gt;, something has gone wrong.&lt;/p&gt;
+
+&lt;h3 id=&quot;check-that-the-service-is-running&quot;&gt;Check that the service is running&lt;/h3&gt;
+
+&lt;p&gt;Here are some suggested steps to take to verify that the service is running:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On the host computer running the proxy, after starting the proxy service, check that the proxy process is running (look for a &lt;code class=&quot;highlighter-rouge&quot;&gt;node&lt;/code&gt; process owned by user &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; in the output of &lt;code class=&quot;highlighter-rouge&quot;&gt;ps auxww&lt;/code&gt;) and also check that something is listening on the desired port (for example, look at the output of &lt;code class=&quot;highlighter-rouge&quot;&gt;netstat -at&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Next, open a new terminal window, &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh&lt;/code&gt; into the server running the proxy, and run &lt;code class=&quot;highlighter-rouge&quot;&gt;tail -f&lt;/code&gt; on &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/messages&lt;/code&gt;.  Do the same for &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/corsproxy/corsproxy.log&lt;/code&gt; in another window.&lt;/li&gt;
+  &lt;li&gt;Now, try to connect to the proxy’s landing page from a browser on your local computer, by visiting the top-level page on the host and port.  For example, if your proxy is running on port 8080 of the computer responding to &lt;code class=&quot;highlighter-rouge&quot;&gt;x.org&lt;/code&gt;, the proxy page would be &lt;code class=&quot;highlighter-rouge&quot;&gt;http://x.org:8080&lt;/code&gt; (or &lt;code class=&quot;highlighter-rouge&quot;&gt;https://x.org:8080&lt;/code&gt; if you have &lt;a href=&quot;#configuring-the-use-of-https&quot;&gt;configured the use of HTTPS&lt;/a&gt; as discussed below.) This landing page is not limited by the setting of &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; in the configuration file, so if you cannot access it, something else is wrong – perhaps the firewall settings on the server prevent access to that port from the outside.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;notes-and-tips-about-http-requests&quot;&gt;Notes and tips about HTTP requests&lt;/h2&gt;
+
+&lt;p&gt;The following are notes about some lessons learned.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-implication-of-local-files-on-the-resulting-http-origin-headers&quot;&gt;The implication of local files on the resulting HTTP &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin&lt;/code&gt; headers&lt;/h3&gt;
+
+&lt;p&gt;A frustrating gotcha in testing JavaScript programs embedded in web pages is how web browsers handle CORS requests.  In particular, suppose that you have some combination of JavaScript and HTML in a web page (such as for a single-page application, perhaps one using &lt;a href=&quot;https://vuejs.org&quot;&gt;vue.js&lt;/a&gt;), and the JavaScript code makes requests to remote services with data payloads in the requests.  These are the kind of requests that trigger CORS protections and probably the reason why you are interested in this CORS proxy.&lt;/p&gt;
+
+&lt;p&gt;Loading a local file is probably the most common way of testing your application during development.  Here is the catch: &lt;strong&gt;browsers set the HTTP header &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; when HTTP requests come from HTML+JavaScript pages loaded from a local file&lt;/strong&gt;.  In other words, if the URL in your browser location bar begins with &lt;code class=&quot;highlighter-rouge&quot;&gt;file://&lt;/code&gt;, HTTP requests generated by JavaScript code in that pager will have &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin: null&lt;/code&gt; when they reach the CORS proxy server.  Since &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; setting uses the value of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin&lt;/code&gt; header, the &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; setting will not work in this situation or will end up causing the server to block your access.&lt;/p&gt;
+
+&lt;p&gt;Here are some suggestions for working around this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One approach is to set up a private copy of the proxy running on a computer that you control; then you can configure the firewall on the host computer to block access to the proxy port from any source other than your client computer.&lt;/li&gt;
+  &lt;li&gt;If you are the only one using the proxy during your development work, one solution is to adjust the firewall settings on the server running &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; to block access from anything other than your client computer.&lt;/li&gt;
+  &lt;li&gt;Another approach, if you need to share the proxy server with other people or can’t change the firewall for some reason, is to adjust the &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; setting in the &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; configuration so that it does not completely block access to unrecognized hosts.  One way to do this is to rely on the rate limit for other origins (i.e., those controlled by the first two numbers in the &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; value).  Set it to something high enough that it does not impede your development workflow, but still low enough to prevent abuse by wannabe hackers doing port scans on your organization’s computers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-implication-of-loading-your-application-into-a-local-web-server&quot;&gt;The implication of loading your application into a local web server&lt;/h3&gt;
+
+&lt;p&gt;Suppose that you are clever and work around the &lt;code class=&quot;highlighter-rouge&quot;&gt;file://&lt;/code&gt; limitation discussed above by starting a local HTTP server, perhaps using the one-line Python command&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; http.server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and then opening a web browser window on &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000/yourfilename.html&lt;/code&gt;.  Well done!  This avoids &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin: null&lt;/code&gt; in the HTTP headers.  However, the resulting &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin&lt;/code&gt; header will then have the value &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000&lt;/code&gt;, which is again not a good basis for setting the &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; configuration variable in your CORS proxy server.  As with the local file approach described above, solutions include adjusting the firewall configuration on the host computer to block anything other than the IP address of your client, or to set &lt;code class=&quot;highlighter-rouge&quot;&gt;RATELIMIT&lt;/code&gt; such that the default values (i.e., from hosts without designated &lt;code class=&quot;highlighter-rouge&quot;&gt;Origin&lt;/code&gt; values) allow &lt;em&gt;some&lt;/em&gt; access from any client.&lt;/p&gt;
+
+&lt;h3 id=&quot;additional-protection-against-abuses-of-the-proxy&quot;&gt;Additional protection against abuses of the proxy&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;REQUIRED_HEADER&lt;/code&gt; setting in the configuration file can be used to identify a header that must be present in HTTP requests in order for proxy accesses to succeed.  It should be a single header name, without a value.
+For example,&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;REQUIRED_HEADER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;x-proxy-cors&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The header string will be compared in a case-insensitive manner.  Proxy requests that lack this HTTP header will be rejected.  Add the header to the requests made by the network code in the client software you control.&lt;/p&gt;
+
+&lt;p&gt;It should be clear that this is a kind of &lt;em&gt;security by obscurity&lt;/em&gt; approach. It is meant to limit proxying to software only you control.  It has benefit only as long as you do not advertise the fact that your proxy looks for the header. (And note that revealing the nature of the header can happen accidentally via the &lt;em&gt;client&lt;/em&gt; software that you write.  Do not do things like hard-wire the header value into open-source software you put on GitHub, where sooner or later someone will find it.)&lt;/p&gt;
+
+&lt;h2 id=&quot;configuring-the-use-of-https&quot;&gt;Configuring the use of HTTPS&lt;/h2&gt;
+
+&lt;p&gt;Corsproxy supports using HTTPS instead of HTTP.  To do that, you need to set the relevant configuration variables in your &lt;code class=&quot;highlighter-rouge&quot;&gt;config.sh&lt;/code&gt; file to reference the key and certificate files needed by HTTPS.&lt;/p&gt;
+
+&lt;p&gt;If you do not already have a certificate for use with corsproxy, you can obtain one easily with &lt;a href=&quot;https://certbot.eff.org/lets-encrypt/centosrhel7-other&quot;&gt;Certbot&lt;/a&gt;.  here are the steps to follow to set up &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; with HTTPS on a CentOS system.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Follow the instructions given on the &lt;a href=&quot;https://certbot.eff.org/lets-encrypt/centosrhel7-other&quot;&gt;Certbot&lt;/a&gt; web page to generate and install the necessary files on your server.  They will by default be placed in the directory &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/letsencrypt&lt;/code&gt;.  For example, if your host and domain are named &lt;code class=&quot;highlighter-rouge&quot;&gt;hostname.hostdomain.com&lt;/code&gt;, then a number of files will be created in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/letsencrypt/live/hostname.hostdomain.com&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/letsencrypt/archive/hostname.hostdomain.com&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change the permissions on the new files in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/letsencrypt&lt;/code&gt; to allow the &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; process to read them, and also to be able to write in the &lt;code class=&quot;highlighter-rouge&quot;&gt;archive&lt;/code&gt; subdirectory.  This can be done as follows (here assuming that the process group name is &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt;):&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; 0770 /etc/letsencrypt/archive/
+ &lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; 0750 /etc/letsencrypt/live/
+ &lt;span class=&quot;nb&quot;&gt;chgrp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; corsproxy /etc/letsencrypt/archive/
+ &lt;span class=&quot;nb&quot;&gt;chgrp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; corsproxy /etc/letsencrypt/live
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;config.sh&lt;/code&gt; file for your copy of &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; to set the values of the &lt;code class=&quot;highlighter-rouge&quot;&gt;KEY_FILE&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;CERT_FILE&lt;/code&gt; variables.  Continuing with the example of &lt;code class=&quot;highlighter-rouge&quot;&gt;hostname.hostdomain.com&lt;/code&gt;, the values would be as follows:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;KEY_FILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/etc/letsencrypt/live/hostname.hostdomain.com/privkey.pem&quot;&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;CERT_FILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/etc/letsencrypt/live/hostname.hostdomain.com/fullchain.pem&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That should be enough.  Now you can restart the &lt;code class=&quot;highlighter-rouge&quot;&gt;corsproxy&lt;/code&gt; server process, change your client’s configuration to use &lt;code class=&quot;highlighter-rouge&quot;&gt;https&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt; in the address for the proxy server, and try to connect through the proxy.  Watch the log files for indicates of whether things are working or not.&lt;/p&gt;</content><author><name></name></author><summary type="html">The development of web-based applications, particularly single-page applications written using JavaScript, can be stymied by problems involving CORS security measures enforced by web browsers. One problem happens when a network server providing a remote API service does not support CORS: if the nature of the network API requires nontrivial types of operations (e.g., HTTP POST requests that contain data payloads), the web browser running the single-page application will enforce CORS requirements, and the API requests will fail when the server does not respond correctly.</summary></entry><entry><title type="html">A synopsis of Named Data Networking (NDN)</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2018-02-24/ndn-synopsis/" rel="alternate" type="text/html" title="A synopsis of Named Data Networking (NDN)" /><published>2018-02-24T00:00:00-06:00</published><updated>2018-02-24T00:00:00-06:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2018-02-24/ndn-synopsis</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2018-02-24/ndn-synopsis/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;The network architecture that underlays today’s Internet is largely based around the concept of moving packets of data from one explicitly identified host to another.  It was designed and developed at a time in history when most computers were stationary, limited in number, far in-between, and trusted each other.  Internet Protocol (IP), the predominant networking protocol supporting the Internet, is concerned with addressing hosts and sending data packets between them—a pairwise point-to-point communications approach that made sense in the landscape of users and applications that existed in the 1970’s. However, modern uses of the Internet have evolved from their origins, and today, content references and distribution make up the majority of internet traffic.  The best estimate in mid-2017 puts the number of visible web pages at nearly 50 billion &lt;a class=&quot;citation&quot; href=&quot;#vandenbosch2016estimating&quot;&gt;(van den Bosch et al., 2016)&lt;/a&gt;, while in terms of data transmitted over the Internet, global IP traffic was estimated at 1.2 zettabytes in 2016 and is predicted to reach 3.3 zettabytes per year by 2021, with IP video traffic estimated to comprise 82 percent of that &lt;a class=&quot;citation&quot; href=&quot;#cisco2017zettabyte&quot;&gt;(Cisco, 2017)&lt;/a&gt;.  “In such a content-centric worldview, what a person wants, rather than where it is located, is what matters most; content, rather than the server on which content resides, becomes the starting point” &lt;a class=&quot;citation&quot; href=&quot;#Kurose2014-ur&quot;&gt;(Kurose, 2014)&lt;/a&gt;.&lt;/p&gt;
 
@@ -438,52 +652,4 @@ IPFS also defines data objects and a scheme to support versioning of objects.  T
 
 &lt;p&gt;By the way, I’m still using Aquamacs 2.x, which is based on Emacs 23, so while I &lt;em&gt;think&lt;/em&gt; the code above should work in later versions of Emacs or Aquamacs, I have not tested it there.&lt;/p&gt;
 
-&lt;p&gt;If you find problems or improvements, please let me know!&lt;/p&gt;</content><author><name></name></author><summary type="html">A few years back, I changed how I work with text files (including LaTeX files) in Emacs: instead of using hard newlines to format paragraphs into lines, I use soft wrapping, and do not insert hard newlines except to break paragraphs. This change was driven by the fact that, except for software development work, most modern editing environments (and most of what my colleagues send) assume soft-wrapped paragraphs. This was an annoying change at first, but I worked out how to set up soft wrapping in Emacs so that I no longer really notice the difference. However, one problem that remained involved the use of version control systems such as git: most of those systems are line-oriented by nature and they show differences in a line-oriented way by default. The resulting diffs are basically unreadable if the source text does not contain hard line breaks.</summary></entry><entry><title type="html">Hummingbird in the garden</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2014-07-29/hummingbird-in-the-garden/" rel="alternate" type="text/html" title="Hummingbird in the garden" /><published>2014-07-29T00:00:00-05:00</published><updated>2014-07-29T00:00:00-05:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2014-07-29/hummingbird-in-the-garden</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2014-07-29/hummingbird-in-the-garden/">&lt;p&gt;This is just a random picture taken earlier today.  A hummingbird sat on a bush in the back of our garden, trying to hide. These little birds are so tiny! Even though I was probably 10 feet away and had a 600mm equivalent telephoto lens, I still had to do a little bit of cropping on the image.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;hummingbird-2014.jpg&quot; /&gt;
-&lt;/figure&gt;</content><author><name></name></author><summary type="html">This is just a random picture taken earlier today. A hummingbird sat on a bush in the back of our garden, trying to hide. These little birds are so tiny! Even though I was probably 10 feet away and had a 600mm equivalent telephoto lens, I still had to do a little bit of cropping on the image.</summary></entry><entry><title type="html">The three types of file backups you really should have</title><link href="https://www.cds.caltech.edu/~mhucka/blog/posts/2014-02-28/backups/" rel="alternate" type="text/html" title="The three types of file backups you really should have" /><published>2014-02-28T00:00:00-06:00</published><updated>2014-02-28T00:00:00-06:00</updated><id>https://www.cds.caltech.edu/~mhucka/blog/posts/2014-02-28/backups</id><content type="html" xml:base="https://www.cds.caltech.edu/~mhucka/blog/posts/2014-02-28/backups/">&lt;p&gt;Most of us working in the computational science and information technology areas use our laptops as our primary computers.  They’re absolutely essential to our work (and even our non-work lives), and any problems can completely disrupt our productivity.  This is why it’s a constant surprise to me to discover how many computational scientists do not seem to have a regular, high-frequency, computer backup solution in place.&lt;/p&gt;
-
-&lt;p&gt;I learned the hard way that even a relatively new laptop’s disk can fail unexpectedly.  In 2008, the disk on my then-only 7 months old laptop failed with a &lt;em&gt;hardware&lt;/em&gt; failure.  One minute I’m working right along, the next minute the disk is unreadable.  My backups at the time were 12 days old.  Why were my backups so old?  Because I got lax in doing them.  I thought, “This is too new – it’s not in danger of failing so soon.  I’ll set up a better backup scheme next week.”  That was a disruptive and expensive lesson.  I ended up using a disk recovery service that charged $1500 and took over two weeks to recover the contents of the disk.  (Apparently what they do is disassemble the disk drive in a clean room, take the platters off and put them in another drive casing, and somehow manage to make things work enough to be able to read data off.)&lt;/p&gt;
-
-&lt;p&gt;That experience led to the three-tiered approach I use today.  It is as automated as I could make it, because anything that requires manual intervention is in danger of being neglected eventually.  (And odds are, the time you neglect it is exactly when you need it the most.)  Here follows an explanation of my approach and some suggestions.&lt;/p&gt;
-
-&lt;h2 id=&quot;automated-hourly-incremental-backups&quot;&gt;Automated, hourly, incremental backups&lt;/h2&gt;
-
-&lt;p&gt;Hourly backups are important for at least two reasons: (1) to avoid disruption of your work if a sudden hardware failure or other problem arises, and (2) so that if you delete a file accidentally, you can recover a relatively recent version of it.  &lt;em&gt;Incremental&lt;/em&gt; backups are important because you want a system that backs up only the changes to your files, not entire files; this saves disk space and time.&lt;/p&gt;
-
-&lt;p&gt;Since I use Mac OS X, I use &lt;a href=&quot;http://en.wikipedia.org/wiki/Time_Machine_(OS_X)&quot;&gt;Time Machine&lt;/a&gt; to perform incremental hourly backups.  It is truly one of the best features of Mac OS X; a set-up-and-forget incremental backups system that doesn’t even require you to worry about stopping the backup process before unmounting your disks – you can unmount them and take your laptop at a moment’s notice, and the next time you plug your disk(s) back in, Time Machine will restart and continue its work.   Time Machine is built into Mac OS X, but there are other similar solutions for other operating systems.&lt;/p&gt;
-
-&lt;p&gt;An important consideration to making this practical is to have a sufficiently fast interface on the backup disk drive.  I find that a disk connected over USB 2.0 is not fast enough, even if the disk itself is fast.  When you try to back up a disk with 300 GB or more, the step of comparing your disk to the backups to identify the changes can take &lt;em&gt;hours&lt;/em&gt; over a USB 2.0 interface.  A FireWire 800 interface has become the minimum necessary in my case; USB 3.0 is even better.&lt;/p&gt;
-
-&lt;p&gt;Because I work from home much of the time, as well as work from two offices, I put backup disks in all locations.  Time Machine lets you configure multiple disks and will use whichever one is available automatically.&lt;/p&gt;
-
-&lt;p&gt;By the way, if you’re a programmer, you may think that keeping your files in git or Mercurial or a similar repository is enough.  I would argue no, for two reasons.  First, do you put &lt;em&gt;everything&lt;/em&gt; in your version control system?  Everything including your mail files, the configuration and preferences files for various programs you use, etc.?  I would wager that the answer is no.  Second, do you check in all the changes every hour?  Again, I bet the answer is no.&lt;/p&gt;
-
-&lt;h2 id=&quot;automated-daily-bootable-mirror-on-external-disk&quot;&gt;Automated, daily, &lt;em&gt;bootable&lt;/em&gt; mirror on external disk&lt;/h2&gt;
-
-&lt;p&gt;Having backups is good, but what will you do if the main disk in your computer fails and you cannot boot?  “Drive to the computer store” may not be an option if you are traveling, but even if it is, recovering or reinstalling a disk from backups is a time-consuming affair.  A better and simpler solution is to have a disk you can boot from and that contains a recent copy of your entire disk. That way, you can not only become operational again almost immediately; the recovery from hourly backups will go much faster.&lt;/p&gt;
-
-&lt;figure class=&quot;float-right width-33&quot;&gt;
-  &lt;img src=&quot;external-backup-drive.jpg&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;To implement this, I use a small portable disk and a cloning utility (&lt;a href=&quot;http://www.bombich.com&quot;&gt;Carbon Copy Cloner&lt;/a&gt;) that is set to mirror the contents of my laptop drive to the external disk on a nightly basis.  When at home, I leave this disk plugged into my laptop; when traveling, I make sure to plug it in when in my hotel room in the evening.  If a catastrophe happens and my laptop’s drive fails, I can plug in the external mirror and boot from it, and have a system that is no more than 24 hours of out date.&lt;/p&gt;
-
-&lt;p&gt;If you have the option to use an external disk that can potentially be swapped for your computer’s internal drive, then that’s the best solution.  Then, if your internal drive fails, you can pull the mirror disk out of its enclosure and put it inside your laptop.  Voilà, you have a working computer again.  However, not all modern laptop drives are removable (oh, hi, MacBook Air!), so this is not always possible.  The crucial thing in any case is to make sure the external mirror disk is &lt;em&gt;something you can boot from&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Of course, nightly backup operations will not run if your computer is turned off.  I always leave my laptop running at night (whether at home or traveling) so that the disk mirroring and off-site backups (below) are performed.&lt;/p&gt;
-
-&lt;p&gt;Note that the bootable mirror accomplishes a different goal than hourly backups: the Time Machine backups are not bootable, and unless you carry your Time Machine backups disk with you wherever you go, you may not be able to access your backups anyway.  If you’re traveling, the only hourly periodic backups you are likely to have are network-based (see the next item), and you may not be able to access them if you can’t boot your computer.&lt;/p&gt;
-
-&lt;h2 id=&quot;automated-daily-off-site-networked-backups&quot;&gt;Automated, daily, off-site, &lt;em&gt;networked&lt;/em&gt; backups&lt;/h2&gt;
-
-&lt;p&gt;All of the above are still not enough.  It is crucial to have one more backup scheme in place: &lt;em&gt;off-site&lt;/em&gt;, networked backups.  If your portable mirror disk fails while you’re traveling, you don’t &lt;em&gt;all&lt;/em&gt; backups to stop being performed as a result; if your laptop and your luggage are stolen while you’re traveling, you want access to your files; if your house or place of work is robbed or experiences a fire, you want a copy of your entire disk that is not co-located with your backup disk, your mirror disk and your laptop.&lt;/p&gt;
-
-&lt;p&gt;To implement this, I personally use &lt;a href=&quot;http://www.code42.com/crashplan/&quot;&gt;CrashPlan&lt;/a&gt;, an excellent service that has really solved over-the-net, cross-platform backups for me.  Previously, I developed a home-grown solution using rsync, but CrashPlan is even better and simpler.  CrashPlan offers free plans as well as paid plans; you can use the free plan with a backup server of your own and achieve nightly remote backups from wherever you are.  I set up a server in my office that acts as a group CrashPlan server for myself and my team.  I have it set to back up every 24 hours, and since it works over the net, it works from wherever I am, whether at home or at work or traveling.&lt;/p&gt;
-
-&lt;p&gt;Once again, to make this work, I leave my computer running overnight and connected to a network, both at home and in hotel rooms while traveling.&lt;/p&gt;
-
-&lt;p&gt;A lot of people use an alternative scheme, such as putting their most important files in &lt;a href=&quot;http://dropbox.com&quot;&gt;Dropbox&lt;/a&gt;.  In fact, I tried this for a time, too – it seemed like a great idea to put my working set of files (notes, software projects, etc.) in a Dropbox folder, so that I can access them from any computer or device.  But I soon stopped.  The approach has drawbacks.  One is that, since you typically don’t put your &lt;em&gt;entire&lt;/em&gt; computer’s disk drive in Dropbox, you are at risk of losing something that you did not think to put in Dropbox.  Another drawback is the performance impact of putting high turnover files in Dropbox: every time you touch a file, Dropbox immediately begins to synchronize that file, which uses CPU, disk I/O and network I/O.  I only had to compile a large program once to realize the impact is just too much for me.&lt;/p&gt;
-
-&lt;p&gt;Dropbox does have the advantage that it records changes almost immediately, so your network copy will be, on average, more recent than a copy made using a periodic backup scheme.  This is a tradeoff of computer performance versus backup recency.  I chose performance over backup recency because I have the other backup mechanisms in place, but the choice may be different for other people or other uses.  (It’s worth noting, however, that if you use the paid version of CrashPlan, you can adjust the backup frequency down to once every 15 minutes if you wish.)&lt;/p&gt;</content><author><name></name></author><summary type="html">Most of us working in the computational science and information technology areas use our laptops as our primary computers. They’re absolutely essential to our work (and even our non-work lives), and any problems can completely disrupt our productivity. This is why it’s a constant surprise to me to discover how many computational scientists do not seem to have a regular, high-frequency, computer backup solution in place.</summary></entry></feed>
+&lt;p&gt;If you find problems or improvements, please let me know!&lt;/p&gt;</content><author><name></name></author><summary type="html">A few years back, I changed how I work with text files (including LaTeX files) in Emacs: instead of using hard newlines to format paragraphs into lines, I use soft wrapping, and do not insert hard newlines except to break paragraphs. This change was driven by the fact that, except for software development work, most modern editing environments (and most of what my colleagues send) assume soft-wrapped paragraphs. This was an annoying change at first, but I worked out how to set up soft wrapping in Emacs so that I no longer really notice the difference. However, one problem that remained involved the use of version control systems such as git: most of those systems are line-oriented by nature and they show differences in a line-oriented way by default. The resulting diffs are basically unreadable if the source text does not contain hard line breaks.</summary></entry></feed>

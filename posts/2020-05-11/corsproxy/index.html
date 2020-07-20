@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Corsproxy – a simple CORS proxy server | So much to know, so little brain</title>
+<meta name="generator" content="Jekyll v4.0.0">
+<meta property="og:title" content="Corsproxy – a simple CORS proxy server">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Useful for writing browser-based networked applications">
+<meta property="og:description" content="Useful for writing browser-based networked applications">
+<link rel="canonical" href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/">
+<meta property="og:url" content="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/">
+<meta property="og:site_name" content="So much to know, so little brain">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-05-11T00:00:00-05:00">
+<script type="application/ld+json">
+{"description":"Useful for writing browser-based networked applications","@type":"BlogPosting","headline":"Corsproxy – a simple CORS proxy server","dateModified":"2020-05-11T00:00:00-05:00","datePublished":"2020-05-11T00:00:00-05:00","url":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/~mhucka/blog/assets/css/style.css">
+<link type="application/atom+xml" rel="alternate" href="https://www.cds.caltech.edu/~mhucka/blog/feed.xml" title="So much to know, so little brain">
+<link rel="shortcut icon" type="image/x-icon" href="/~mhucka/blog/images/favicon.ico">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Corsproxy – a simple CORS proxy server | So much to know, so little brain</title>
+<meta name="generator" content="Jekyll v4.0.0">
+<meta property="og:title" content="Corsproxy – a simple CORS proxy server">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Useful for writing browser-based networked applications">
+<meta property="og:description" content="Useful for writing browser-based networked applications">
+<link rel="canonical" href="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/">
+<meta property="og:url" content="https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/">
+<meta property="og:site_name" content="So much to know, so little brain">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-05-11T00:00:00-05:00">
+<script type="application/ld+json">
+{"description":"Useful for writing browser-based networked applications","@type":"BlogPosting","headline":"Corsproxy – a simple CORS proxy server","dateModified":"2020-05-11T00:00:00-05:00","datePublished":"2020-05-11T00:00:00-05:00","url":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.cds.caltech.edu/~mhucka/blog/posts/2020-05-11/corsproxy/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet">
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link type="application/atom+xml" rel="alternate" href="https://www.cds.caltech.edu/~mhucka/blog/feed.xml" title="So much to know, so little brain">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body>
+<header class="site-header">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/~mhucka/blog/">So much to know, so little brain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+<a class="page-link" href="/~mhucka/blog/about.html">About</a><a class="page-link" href="/~mhucka/blog/search/">Search</a><a class="page-link" href="/~mhucka/blog/categories/">Tags</a>
+</div>
+      </nav><span class="site-subtitle">Welcome to my blog, where I share discoveries &amp; experiences. – <a href="/about.html">Mike Hucka, Ph.D.</a></span>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Corsproxy – a simple CORS proxy server</h1>
+<p class="page-description">Useful for writing browser-based networked applications</p>
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-11T00:00:00-05:00" itemprop="datePublished">
+        May 11, 2020
+      </time>
+      <span class="read-time" title="Estimated read time">
+    
+    
+      10 min read
+    
+</span></p>
+
+    
+      <p class="keywords">
+      
+        <a class="keywords-link" href="/~mhucka/blog/categories/#software">software</a>
+         
+      
+        <a class="keywords-link" href="/~mhucka/blog/categories/#networking">networking</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The development of web-based applications, particularly single-page applications written using JavaScript, can be stymied by problems involving <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a> security measures enforced by web browsers.  One problem happens when a network server providing a remote API service does not support CORS: if the nature of the network API requires nontrivial types of operations (e.g., HTTP POST requests that contain data payloads), the web browser running the single-page application will enforce CORS requirements, and the API requests will fail when the server does not respond correctly.</p>
+
+<p><img width="25%" style="float: right" src="corsproxy-logo.svg"></p>
+
+<p>A simple solution to this problem is to insert an intermediate proxy server between the web application and the network service.  An example of such a proxy server is <a href="https://cors-anywhere.herokuapp.com/">CORS Anywhere</a>, an open-source proxy server that runs in NodeJS.  CORS Anywhere works well, and only needs some additional elements to make it suitable for running as a standard system service on a Linux server.</p>
+
+<p>For this reason, I wrote <a href="https://github.com/caltechlibrary/corsproxy">corsproxy</a>, a simple CORS proxy server suitable to install as a system service on Linux servers.  Corsproxy also tries to simplify some of the configuration steps in using CORS Anywhere.</p>
+
+<h2 id="installation-on-centosrhel-flavored-linux">Installation on CentOS/RHEL-flavored Linux</h2>
+
+<p>Here are the steps I took to install and set up this service on a CentOS 7.7 system.  (Note: all of the following commands are performed as root.)</p>
+
+<h3 id="prepare-your-system-and-install-the-software">Prepare your system and install the software</h3>
+
+<ol>
+  <li>
+    <p>Create a user account for the service on the host system.  (E.g., <code class="highlighter-rouge">corsproxy</code>.) On a CentOS 7 system, this can be done using the following command; note the use of the <code class="highlighter-rouge">-k</code> argument to prevent copying default skeleton files to the home directory, because we will fill the home directory with something else in the next step.</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> useradd <span class="nt">-r</span> <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"CORS proxy server"</span> <span class="nt">-k</span> /dev/null corsproxy
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Clone this git repository into the account directory on the host system:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> /home/corsproxy
+ git clone <span class="nt">--recursive</span> https://github.com/caltechlibrary/corsproxy.git <span class="nb">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install the NodeJS dependencies in the <code class="highlighter-rouge">server</code> subdirectory:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> /home/corsproxy/server
+ npm <span class="nb">install </span>cors-anywhere
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Change the user and group of everything to match the proxy user’s group:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> /home/corsproxy
+ <span class="nb">chown</span> <span class="nt">-R</span> corsproxy:corsproxy <span class="nb">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Create a directory in <code class="highlighter-rouge">/var/run</code> where the proxy user can write the process id file:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir</span> /var/run/corsproxy
+ <span class="nb">chown </span>corsproxy:corsproxy /var/run/corsproxy
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install the <code class="highlighter-rouge">rsyslogd</code> configuration file, and tell <code class="highlighter-rouge">rsyslogd</code> to load it:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> /home/corsproxy/admin/system
+ <span class="nb">cp </span>corsproxy-rsyslog.conf /etc/rsyslog.d/corsproxy.conf
+ <span class="nb">mkdir</span> /var/log/corsproxy
+ <span class="nb">chown </span>corsproxy:corsproxy /var/log/corsproxy
+ systemctl restart rsyslog
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install the <code class="highlighter-rouge">systemd</code> script and tell <code class="highlighter-rouge">systemd</code> about it:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cp </span>corsproxy.service /etc/systemd/system/
+ systemctl daemon-reload
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install the <code class="highlighter-rouge">logrotate</code> script:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">cp </span>corsproxy-logrotate.txt /etc/logrotate.d/corsproxy
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="configure-the-proxy">Configure the proxy</h3>
+
+<p>Configure the CORS proxy server by copying the template configuration file to create <code class="highlighter-rouge">config.sh</code> and then editing this <code class="highlighter-rouge">config.sh</code> file to set the variable values as needed for your installation.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nb">cd</span> /home/corsproxy/admin
+   <span class="nb">cp </span>config.sh.template config.sh
+   <span class="c"># edit config.sh</span>
+</code></pre></div></div>
+
+<p>The value of the variables <code class="highlighter-rouge">RATELIMIT</code> and <code class="highlighter-rouge">REQUIRED_HEADER</code> are the most important to set in order to help prevent abuse of the service.  Information about them can be found in the <code class="highlighter-rouge">config.sh.template</code> file.  Note: the way that the restrictions on origins works is currently limited, in that hosts are restricted based on the value of the <code class="highlighter-rouge">Origin</code> header in the HTTP request, <em>not the actual host or IP address</em> of source of the request.  To block hosts by IP address ranges, configure your system’s firewall appropriately (see next steps).  See the discussion later below for more on this topic.</p>
+
+<h3 id="configure-your-firewall">Configure your firewall</h3>
+
+<p>Check your firewall settings and make sure they permit connections to the port you configured.  Specific instructions for doing this cannot be given here, as they depend very much on your firewall scheme.  Also make sure to <em>save</em> this new configuration (the <em>how</em> again depends on your particular system), so that the new firewall configuration persists across reboots of your computer.</p>
+
+<h3 id="start-the-service">Start the service</h3>
+
+<p>Now, at this point, everything is in place, and what remains is to tell the operating system to install the new service and start it up.  Before going further, it may be helpful to open another window and do a <code class="highlighter-rouge">tail -f /var/log/messages</code> to keep an eye for system messages.</p>
+
+<ol>
+  <li>
+    <p>Enable the new service:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> systemctl <span class="nb">enable </span>corsproxy.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Start the service:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> systemctl start corsproxy.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check the status:</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> systemctl status corsproxy.service
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>If all goes well, a <code class="highlighter-rouge">node</code> process should be running under the user credentials of <code class="highlighter-rouge">corsproxy</code>.  Log output should also appear in a new log file located at <code class="highlighter-rouge">/var/log/corsproxy/corsproxy.log</code>, but it will also get printed to <code class="highlighter-rouge">/var/log/messages</code>.  If log output is <em>only</em> printed in <code class="highlighter-rouge">/var/log/messages</code>, something has gone wrong.</p>
+
+<h3 id="check-that-the-service-is-running">Check that the service is running</h3>
+
+<p>Here are some suggested steps to take to verify that the service is running:</p>
+
+<ol>
+  <li>On the host computer running the proxy, after starting the proxy service, check that the proxy process is running (look for a <code class="highlighter-rouge">node</code> process owned by user <code class="highlighter-rouge">corsproxy</code> in the output of <code class="highlighter-rouge">ps auxww</code>) and also check that something is listening on the desired port (for example, look at the output of <code class="highlighter-rouge">netstat -at</code>).</li>
+  <li>Next, open a new terminal window, <code class="highlighter-rouge">ssh</code> into the server running the proxy, and run <code class="highlighter-rouge">tail -f</code> on <code class="highlighter-rouge">/var/log/messages</code>.  Do the same for <code class="highlighter-rouge">/var/log/corsproxy/corsproxy.log</code> in another window.</li>
+  <li>Now, try to connect to the proxy’s landing page from a browser on your local computer, by visiting the top-level page on the host and port.  For example, if your proxy is running on port 8080 of the computer responding to <code class="highlighter-rouge">x.org</code>, the proxy page would be <code class="highlighter-rouge">http://x.org:8080</code> (or <code class="highlighter-rouge">https://x.org:8080</code> if you have <a href="#configuring-the-use-of-https">configured the use of HTTPS</a> as discussed below.) This landing page is not limited by the setting of <code class="highlighter-rouge">RATELIMIT</code> in the configuration file, so if you cannot access it, something else is wrong – perhaps the firewall settings on the server prevent access to that port from the outside.</li>
+</ol>
+
+<h2 id="notes-and-tips-about-http-requests">Notes and tips about HTTP requests</h2>
+
+<p>The following are notes about some lessons learned.</p>
+
+<h3 id="the-implication-of-local-files-on-the-resulting-http-origin-headers">The implication of local files on the resulting HTTP <code class="highlighter-rouge">Origin</code> headers</h3>
+
+<p>A frustrating gotcha in testing JavaScript programs embedded in web pages is how web browsers handle CORS requests.  In particular, suppose that you have some combination of JavaScript and HTML in a web page (such as for a single-page application, perhaps one using <a href="https://vuejs.org">vue.js</a>), and the JavaScript code makes requests to remote services with data payloads in the requests.  These are the kind of requests that trigger CORS protections and probably the reason why you are interested in this CORS proxy.</p>
+
+<p>Loading a local file is probably the most common way of testing your application during development.  Here is the catch: <strong>browsers set the HTTP header <code class="highlighter-rouge">Origin</code> to <code class="highlighter-rouge">null</code> when HTTP requests come from HTML+JavaScript pages loaded from a local file</strong>.  In other words, if the URL in your browser location bar begins with <code class="highlighter-rouge">file://</code>, HTTP requests generated by JavaScript code in that pager will have <code class="highlighter-rouge">Origin: null</code> when they reach the CORS proxy server.  Since <code class="highlighter-rouge">corsproxy</code>’s <code class="highlighter-rouge">RATELIMIT</code> setting uses the value of the <code class="highlighter-rouge">Origin</code> header, the <code class="highlighter-rouge">RATELIMIT</code> setting will not work in this situation or will end up causing the server to block your access.</p>
+
+<p>Here are some suggestions for working around this:</p>
+
+<ul>
+  <li>One approach is to set up a private copy of the proxy running on a computer that you control; then you can configure the firewall on the host computer to block access to the proxy port from any source other than your client computer.</li>
+  <li>If you are the only one using the proxy during your development work, one solution is to adjust the firewall settings on the server running <code class="highlighter-rouge">corsproxy</code> to block access from anything other than your client computer.</li>
+  <li>Another approach, if you need to share the proxy server with other people or can’t change the firewall for some reason, is to adjust the <code class="highlighter-rouge">RATELIMIT</code> setting in the <code class="highlighter-rouge">corsproxy</code> configuration so that it does not completely block access to unrecognized hosts.  One way to do this is to rely on the rate limit for other origins (i.e., those controlled by the first two numbers in the <code class="highlighter-rouge">RATELIMIT</code> value).  Set it to something high enough that it does not impede your development workflow, but still low enough to prevent abuse by wannabe hackers doing port scans on your organization’s computers.</li>
+</ul>
+
+<h3 id="the-implication-of-loading-your-application-into-a-local-web-server">The implication of loading your application into a local web server</h3>
+
+<p>Suppose that you are clever and work around the <code class="highlighter-rouge">file://</code> limitation discussed above by starting a local HTTP server, perhaps using the one-line Python command</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> http.server
+</code></pre></div></div>
+
+<p>and then opening a web browser window on <code class="highlighter-rouge">http://localhost:8000/yourfilename.html</code>.  Well done!  This avoids <code class="highlighter-rouge">Origin: null</code> in the HTTP headers.  However, the resulting <code class="highlighter-rouge">Origin</code> header will then have the value <code class="highlighter-rouge">http://localhost:8000</code>, which is again not a good basis for setting the <code class="highlighter-rouge">RATELIMIT</code> configuration variable in your CORS proxy server.  As with the local file approach described above, solutions include adjusting the firewall configuration on the host computer to block anything other than the IP address of your client, or to set <code class="highlighter-rouge">RATELIMIT</code> such that the default values (i.e., from hosts without designated <code class="highlighter-rouge">Origin</code> values) allow <em>some</em> access from any client.</p>
+
+<h3 id="additional-protection-against-abuses-of-the-proxy">Additional protection against abuses of the proxy</h3>
+
+<p>The <code class="highlighter-rouge">REQUIRED_HEADER</code> setting in the configuration file can be used to identify a header that must be present in HTTP requests in order for proxy accesses to succeed.  It should be a single header name, without a value.
+For example,</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">REQUIRED_HEADER</span><span class="o">=</span><span class="s2">"x-proxy-cors"</span>
+</code></pre></div></div>
+
+<p>The header string will be compared in a case-insensitive manner.  Proxy requests that lack this HTTP header will be rejected.  Add the header to the requests made by the network code in the client software you control.</p>
+
+<p>It should be clear that this is a kind of <em>security by obscurity</em> approach. It is meant to limit proxying to software only you control.  It has benefit only as long as you do not advertise the fact that your proxy looks for the header. (And note that revealing the nature of the header can happen accidentally via the <em>client</em> software that you write.  Do not do things like hard-wire the header value into open-source software you put on GitHub, where sooner or later someone will find it.)</p>
+
+<h2 id="configuring-the-use-of-https">Configuring the use of HTTPS</h2>
+
+<p>Corsproxy supports using HTTPS instead of HTTP.  To do that, you need to set the relevant configuration variables in your <code class="highlighter-rouge">config.sh</code> file to reference the key and certificate files needed by HTTPS.</p>
+
+<p>If you do not already have a certificate for use with corsproxy, you can obtain one easily with <a href="https://certbot.eff.org/lets-encrypt/centosrhel7-other">Certbot</a>.  here are the steps to follow to set up <code class="highlighter-rouge">corsproxy</code> with HTTPS on a CentOS system.</p>
+
+<ol>
+  <li>Follow the instructions given on the <a href="https://certbot.eff.org/lets-encrypt/centosrhel7-other">Certbot</a> web page to generate and install the necessary files on your server.  They will by default be placed in the directory <code class="highlighter-rouge">/etc/letsencrypt</code>.  For example, if your host and domain are named <code class="highlighter-rouge">hostname.hostdomain.com</code>, then a number of files will be created in <code class="highlighter-rouge">/etc/letsencrypt/live/hostname.hostdomain.com</code> and <code class="highlighter-rouge">/etc/letsencrypt/archive/hostname.hostdomain.com</code>.</li>
+  <li>
+    <p>Change the permissions on the new files in <code class="highlighter-rouge">/etc/letsencrypt</code> to allow the <code class="highlighter-rouge">corsproxy</code> process to read them, and also to be able to write in the <code class="highlighter-rouge">archive</code> subdirectory.  This can be done as follows (here assuming that the process group name is <code class="highlighter-rouge">corsproxy</code>):</p>
+
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nb">chmod</span> <span class="nt">-R</span> 0770 /etc/letsencrypt/archive/
+ <span class="nb">chmod</span> <span class="nt">-R</span> 0750 /etc/letsencrypt/live/
+ <span class="nb">chgrp</span> <span class="nt">-R</span> corsproxy /etc/letsencrypt/archive/
+ <span class="nb">chgrp</span> <span class="nt">-R</span> corsproxy /etc/letsencrypt/live
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit the <code class="highlighter-rouge">config.sh</code> file for your copy of <code class="highlighter-rouge">corsproxy</code> to set the values of the <code class="highlighter-rouge">KEY_FILE</code> and <code class="highlighter-rouge">CERT_FILE</code> variables.  Continuing with the example of <code class="highlighter-rouge">hostname.hostdomain.com</code>, the values would be as follows:</p>
+
+    <div class="language-bash highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code> <span class="nv">KEY_FILE</span><span class="o">=</span><span class="s2">"/etc/letsencrypt/live/hostname.hostdomain.com/privkey.pem"</span>
+ <span class="nv">CERT_FILE</span><span class="o">=</span><span class="s2">"/etc/letsencrypt/live/hostname.hostdomain.com/fullchain.pem"</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>That should be enough.  Now you can restart the <code class="highlighter-rouge">corsproxy</code> server process, change your client’s configuration to use <code class="highlighter-rouge">https</code> instead of <code class="highlighter-rouge">http</code> in the address for the proxy server, and try to connect through the proxy.  Watch the log files for indicates of whether things are working or not.</p>
+
+  </div>
+<a class="u-url" href="/~mhucka/blog/posts/2020-05-11/corsproxy/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/~mhucka/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/~mhucka/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/~mhucka/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Content licensed CC-BY 4.0</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+<ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

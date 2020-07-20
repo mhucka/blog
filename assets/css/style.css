@@ -356,7 +356,7 @@ header.site-header .wrapper { max-width: 92%; font-family: 'Cabin', sans-serif; 
 
 header.site-header a.site-title, header.site-header a.page-link { color: white; font-weight: 500; letter-spacing: 0.25pt; text-shadow: 1px 1px 3px #444; display: inline-block; padding: 0; margin: 0; margin-top: 0.25em; line-height: 1.25em; }
 
-header.site-header .site-subtitle { display: block; clear: both; font-style: italic; padding: 0; margin: 0; margin-top: -1em; margin-bottom: 1em; line-height: 1.25em; }
+header.site-header .site-subtitle { display: block; clear: both; font-style: italic; padding: 0; margin: 0; margin-top: -0.85em; margin-bottom: 1em; line-height: 1.25em; letter-spacing: 0.1ex; }
 
 header.site-header a, header.site-header a:visited { color: white; }
 
@@ -379,7 +379,11 @@ main strong, main b { font-weight: 500; color: black; }
 
 article h1 { counter-reset: h2counter; }
 
-article h2:before { content: counter(h2counter) "   "; counter-increment: h2counter; counter-reset: h3counter; }
+article h2 { counter-reset: h3counter; }
+
+article h2:before { content: counter(h2counter) "   "; counter-increment: h2counter; }
+
+article h3 { counter-reset: h4counter; }
 
 article h3:before { content: counter(h2counter) "." counter(h3counter) "   "; counter-increment: h3counter; }
 
@@ -430,7 +434,7 @@ article .post-meta-title { text-align: center; }
 
 .post-meta-keywords-list { display: inline; margin-left: 0.5em; }
 
-.post-meta-keywords-list-separator:before { content: "▫︎▫︎▫︎"; color: #bbb; }
+.post-meta-keywords-list-separator:before { content: "✴︎✴︎✴︎"; color: #bbb; }
 
 .post-list li p { display: inline-block; }
 
@@ -555,13 +559,18 @@ footer .feed-subscribe .svg-icon.orange { color: #5a5a5a; height: 1.5em; width: 
 
 /* The first in each group is the main category, which fastpages
 (or maybe jekyll?) puts in a top-level directory. */
-a[href*="#sysbio"], span[keyword="#sysbio"] { color: #0099ff; text-decoration: none; }
+a[href*="#sysbio"], span[keyword="#sysbio"] { color: #0041c2; text-decoration: none; }
 
-a[href*="#sysbio"]:visited { color: #0099ff; text-decoration: none; }
+a[href*="#sysbio"]:visited { color: #0041c2; text-decoration: none; }
 
 a[href*="#sbml"], span[keyword="#sbml"] { color: #0079ab; text-decoration: none; }
 
 a[href*="#sbml"]:visited { color: #0079ab; text-decoration: none; }
+
+/* reds */
+a[href*="#software"], span[keyword="#software"] { color: #e02080; text-decoration: none; }
+
+a[href*="#software"]:visited { color: #e02080; text-decoration: none; }
 
 a[href*="#machine-learning"], span[keyword="#machine-learning"] { color: #f00000; text-decoration: none; }
 
@@ -575,10 +584,6 @@ a[href*="#HTR"], span[keyword="#HTR"] { color: #ff1a1a; text-decoration: none; }
 
 a[href*="#HTR"]:visited { color: #ff1a1a; text-decoration: none; }
 
-a[href*="#software"], span[keyword="#software"] { color: #e02080; text-decoration: none; }
-
-a[href*="#software"]:visited { color: #e02080; text-decoration: none; }
-
 a[href*="#AI"], span[keyword="#AI"] { color: #d00000; text-decoration: none; }
 
 a[href*="#AI"]:visited { color: #d00000; text-decoration: none; }
@@ -587,51 +592,58 @@ a[href*="#networking"], span[keyword="#networking"] { color: #cc3300; text-decor
 
 a[href*="#networking"]:visited { color: #cc3300; text-decoration: none; }
 
-a[href*="#git"], span[keyword="#git"] { color: #ff8566; text-decoration: none; }
+a[href*="#git"], span[keyword="#git"] { color: #dc381f; text-decoration: none; }
 
-a[href*="#git"]:visited { color: #ff8566; text-decoration: none; }
+a[href*="#git"]:visited { color: #dc381f; text-decoration: none; }
 
-a[href*="#emacs"], span[keyword="#emacs"] { color: #cF7010; text-decoration: none; }
+a[href*="#emacs"], span[keyword="#emacs"] { color: #c04000; text-decoration: none; }
 
-a[href*="#emacs"]:visited { color: #cF7010; text-decoration: none; }
+a[href*="#emacs"]:visited { color: #c04000; text-decoration: none; }
 
-a[href*="#latex"], span[keyword="#latex"] { color: #dfc9cc; text-decoration: none; }
+a[href*="#latex"], span[keyword="#latex"] { color: #9f000f; text-decoration: none; }
 
-a[href*="#latex"]:visited { color: #dfc9cc; text-decoration: none; }
+a[href*="#latex"]:visited { color: #9f000f; text-decoration: none; }
 
-a[href*="#macos"], span[keyword="#macos"] { color: #ffb3b3; text-decoration: none; }
+a[href*="#macos"], span[keyword="#macos"] { color: #7d0541; text-decoration: none; }
 
-a[href*="#macos"]:visited { color: #ffb3b3; text-decoration: none; }
+a[href*="#macos"]:visited { color: #7d0541; text-decoration: none; }
 
-a[href*="#hardware"], span[keyword="#hardware"] { color: #e900f0; text-decoration: none; }
+/* browns */
+a[href*="#hardware"], span[keyword="#hardware"] { color: #493d26; text-decoration: none; }
 
-a[href*="#hardware"]:visited { color: #e900f0; text-decoration: none; }
+a[href*="#hardware"]:visited { color: #493d26; text-decoration: none; }
 
-a[href*="#mac"], span[keyword="#mac"] { color: #bf00cf; text-decoration: none; }
+a[href*="#mac"], span[keyword="#mac"] { color: #7f4e47; text-decoration: none; }
 
-a[href*="#mac"]:visited { color: #bf00cf; text-decoration: none; }
+a[href*="#mac"]:visited { color: #7f4e47; text-decoration: none; }
 
-a[href*="#ipad"], span[keyword="#ipad"] { color: #df33cc; text-decoration: none; }
+a[href*="#ipad"], span[keyword="#ipad"] { color: #966f33; text-decoration: none; }
 
-a[href*="#ipad"]:visited { color: #df33cc; text-decoration: none; }
+a[href*="#ipad"]:visited { color: #966f33; text-decoration: none; }
 
-a[href*="#life-hacks"], span[keyword="#life-hacks"] { color: #aaaa55; text-decoration: none; }
+/* oranges & yellows */
+a[href*="#life-hacks"], span[keyword="#life-hacks"] { color: #f87217; text-decoration: none; }
 
-a[href*="#life-hacks"]:visited { color: #aaaa55; text-decoration: none; }
+a[href*="#life-hacks"]:visited { color: #f87217; text-decoration: none; }
 
-a[href*="#efficiency-hacks"], span[keyword="#efficiency-hacks"] { color: #ffad33; text-decoration: none; }
+a[href*="#efficiency-hacks"], span[keyword="#efficiency-hacks"] { color: #dfad23; text-decoration: none; }
 
-a[href*="#efficiency-hacks"]:visited { color: #ffad33; text-decoration: none; }
+a[href*="#efficiency-hacks"]:visited { color: #dfad23; text-decoration: none; }
 
-a[href*="#research"], span[keyword="#research"] { color: #9cdc00; text-decoration: none; }
+a[href*="#research"], span[keyword="#research"] { color: #fbb117; text-decoration: none; }
 
-a[href*="#research"]:visited { color: #9cdc00; text-decoration: none; }
+a[href*="#research"]:visited { color: #fbb117; text-decoration: none; }
 
+/* greens */
 a[href*="#photography"], span[keyword="#photography"] { color: #80a000; text-decoration: none; }
 
 a[href*="#photography"]:visited { color: #80a000; text-decoration: none; }
 
-/* other colors: #996611 #9b59b6 #d00000 purple */
+a[href*="#birds"], span[keyword="#birds"] { color: #347c17; text-decoration: none; }
+
+a[href*="#birds"]:visited { color: #347c17; text-decoration: none; }
+
+/* other colors: https://www.computerhope.com/htmcolor.htm blues: 0099ff 3090c7 3b9c9c orange: e56717 brown: af9b60 #9cdc00 #996611 #9b59b6 #d00000 purple */
 /* Override the code highlighting theme settings. ............................................................................ */
 .highlight table td { padding: 5px; }
 
