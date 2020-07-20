@@ -739,25 +739,29 @@ a[href*="#latex"]:visited                                       { color: #dfc9cc
 a[href*="#macos"], span[keyword="#macos"]                       { color: #ffb3b3; text-decoration: none; }
 a[href*="#macos"]:visited                                       { color: #ffb3b3; text-decoration: none; }
 
-a[href*="#hardware"], span[keyword="#hardware"]                 { color: #e900f0; text-decoration: none; }
-a[href*="#hardware"]:visited                                    { color: #e900f0; text-decoration: none; }
-a[href*="#mac"], span[keyword="#mac"]                           { color: #bf00cf; text-decoration: none; }
-a[href*="#mac"]:visited                                         { color: #bf00cf; text-decoration: none; }
-a[href*="#ipad"], span[keyword="#ipad"]                         { color: #df33cc; text-decoration: none; }
-a[href*="#ipad"]:visited                                        { color: #df33cc; text-decoration: none; }
+a[href*="#hardware"], span[keyword="#hardware"]                 { color: #0041c2; text-decoration: none; }
+a[href*="#hardware"]:visited                                    { color: #0041c2; text-decoration: none; }
+a[href*="#mac"], span[keyword="#mac"]                           { color: #3090c7; text-decoration: none; }
+a[href*="#mac"]:visited                                         { color: #3090c7; text-decoration: none; }
+a[href*="#ipad"], span[keyword="#ipad"]                         { color: #3b9c9c; text-decoration: none; }
+a[href*="#ipad"]:visited                                        { color: #3b9c9c; text-decoration: none; }
 
-a[href*="#life-hacks"], span[keyword="#life-hacks"]             { color: #aaaa55; text-decoration: none; }
-a[href*="#life-hacks"]:visited                                  { color: #aaaa55; text-decoration: none; }
-a[href*="#efficiency-hacks"], span[keyword="#efficiency-hacks"] { color: #ffad33; text-decoration: none; }
-a[href*="#efficiency-hacks"]:visited                            { color: #ffad33; text-decoration: none; }
-a[href*="#research"], span[keyword="#research"]                 { color: #9cdc00; text-decoration: none; }
-a[href*="#research"]:visited                                    { color: #9cdc00; text-decoration: none; }
+a[href*="#life-hacks"], span[keyword="#life-hacks"]             { color: #dfad23; text-decoration: none; }
+a[href*="#life-hacks"]:visited                                  { color: #dfad23; text-decoration: none; }
+a[href*="#efficiency-hacks"], span[keyword="#efficiency-hacks"] { color: #ffd038; text-decoration: none; }
+a[href*="#efficiency-hacks"]:visited                            { color: #ffd038; text-decoration: none; }
+a[href*="#research"], span[keyword="#research"]                 { color: #ffcbb4; text-decoration: none; }
+a[href*="#research"]:visited                                    { color: #ffcbb4; text-decoration: none; }
 
 a[href*="#photography"], span[keyword="#photography"]           { color: #80a000; text-decoration: none; }
 a[href*="#photography"]:visited                                 { color: #80a000; text-decoration: none; }
-
+a[href*="#birds"], span[keyword="#birds"]                       { color: #aaaa55; text-decoration: none; }
+a[href*="#birds"]:visited                                       { color: #aaaa55; text-decoration: none; }
 
 /* other colors:
+https://www.computerhope.com/htmcolor.htm
+
+#9cdc00
 #996611
 #9b59b6
 #d00000
