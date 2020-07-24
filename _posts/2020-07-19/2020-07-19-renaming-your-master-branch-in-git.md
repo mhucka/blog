@@ -21,7 +21,7 @@ After Googling for solutions, many of which go to old Stack Overflow questions w
     ```
 3. Go to your repo on GitHub, click on the _Settings_ tab across the top, then click on _Branches_ in the left-hand list of items:  
     <figure><img width="25%" src="settings-branch.png"></figure>
-4. In the _Branches_ panel, change the default branch to be `main`:  
+4. In the _Branches_ panel, change the default branch to be `main` and click the _Update_ button:  
     <figure><img width="25%" src="branch-change-default.png"></figure>
 5. Now go back to your local repository copy, and type one final command to delete `origin/master`:
     ```language-bash
